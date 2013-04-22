@@ -1,0 +1,11 @@
+# @see https://rvm.beginrescueend.com/workflow/rvmrc/
+
+rvm use ruby-1.9.3
+
+if [ -f Gemfile ] && ! command -v bundle >/dev/null; then
+  gem install bundler
+fi
+
+alias vagrant="bundle exec vagrant"
+alias irb="bundle exec irb"
+alias berks="bundle exec berks"
