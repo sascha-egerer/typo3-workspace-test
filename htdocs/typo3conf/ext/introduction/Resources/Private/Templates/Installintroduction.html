@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html
+     PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Template: Finish</title>
+	</head>
+
+	<body>
+		<div>
+			<h2>Choose a package</h2>
+			<!-- ###TEMPLATE### begin-->
+		<script language="javascript">
+			//<![CDATA[
+			function displayInstallationInProgress() {
+				var systemToInstall = $$('input[name=systemToInstall]:checked').first().value;
+
+				$$('#t3-install-box-body h3')[0].replace('<h3>Installation now in progress...</h3>');
+				$('chooseSubpackage').hide();
+				$('installationInProgress_'+systemToInstall).show();
+				$('installationInProgressLoader').show();
+			}
+			//]]>
+		</script>
+		<div id="chooseSubpackage">
+			<p>Please select the package you want to install for your TYPO3 System.</p>
+			<!-- ###ALL_DIRECTORIES_WRITABLE_REMOVEWHENEMPTY### begin -->
+			<form action="index.php?TYPO3_INSTALL[type]=database&mode=123&step=5" method="post" onsubmit="displayInstallationInProgress(); return true;">
+				<fieldset class="t3-install-form-label-after">
+					###AVAILABLE_SUBPACKAGES###
+					<input id="systemToInstallEmpty" type="radio" name="systemToInstall" value="blank" />
+					<label for="systemToInstallEmpty"><strong>Blank System</strong><br />
+					This will install a bare TYPO3 system with basic database and folder structure.</label>
+				</fieldset>
+
+				<fieldset>
+					<input type="hidden" name="TYPO3_INSTALL[database_type]" value="import|CURRENT_TABLES+STATIC" />
+					<input type="hidden" name="TYPO3_INSTALL[database_import_all]" value="1" />
+					<button type="submit">Continue<span class="t3-install-form-button-icon-positive">&nbsp;</span></button>
+				</fieldset>
+			</form>
+			<!-- ###ALL_DIRECTORIES_WRITABLE_REMOVEWHENEMPTY### end -->
+			<!-- ###NON_WRITABLE_DIRECTORIES_REMOVEWHENEMPTY### begin -->
+			<form action="index.php?TYPO3_INSTALL[type]=database&mode=123&step=4" method="post">
+				<p class="typo3-message message-error"><strong>In order for the introduction package to work correctly, the following directories should be writable:
+				<ul>###NON_WRITABLE_DIRECTORIES###</ul></strong></p>
+
+				<fieldset>
+					<button type="submit">Recheck<span class="t3-install-form-button-icon-negative">&nbsp;</span></button>
+				</fieldset>
+			</form>
+			<!-- ###NON_WRITABLE_DIRECTORIES_REMOVEWHENEMPTY### end -->
+		</div>
+		<div id="installationInProgress_blank" style="display:none">
+			<strong>- Setting up the database </strong>
+		</div>
+		###AVAILABLE_SUBPACKAGES_INSTALLMESSAGES###
+		<div id="installationInProgressLoader" style="display:none; margin-top: 30px;">
+			<div style="float: left; margin-right: 15px;"><img src="###PATH_TO_RESOURCES###Images/ajax-loader.gif" /></div>
+			<div style="float: left; margin-top: -3px;">This could take a few minutes,<br />please wait, the server tries its best.</div>
+			<div style="clear: both; padding-bottom: 10px;"></div>
+		</div>
+			<!-- ###TEMPLATE### end-->
+		</div>
+	</body>
+</html>

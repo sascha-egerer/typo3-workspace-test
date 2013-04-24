@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<description>language labels for automaketemplate</description>
+		<type>module</type>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="updater.heading">Deprecated function</label>
+			<label index="updater.message"><![CDATA[In PHP 5.3 the function ereg_replace is deprecated. This means that it won't be
+				supported in later versions. Automaketemplate uses this function in:<br />
+				<pre>plugin.tx_automaketemplate_pi1.elements.[TAG].str_replace.[key].useRPFunc = ereg_replace</pre><br />
+				In this version support for preg_replace is added. To convert the ereg-expression the following steps are usually
+				enough:
+				<ul>
+					<li>* replace all slashes ('/') with escaped slashes ('\/')</li>
+					<li>* add a slash at the beginning and end of the expression</li>
+				</ul>
+				Note that there are a couple of differences between ereg-expressions and preg-expressions.<br />
+				<strong>Support for ereg_replace will be removed when TYPO3 4.6 is released (which will require PHP 5.3).</strong>]]>
+			</label>
+		</languageKey>
+		<languageKey index="nl" type="array">
+			<label index="updater.heading">Verouderde functie</label>
+			<label index="updater.message"><![CDATA[In PHP 5.3 is de functie ereg_replace verouderd verklaard. Dit betekent dat het niet
+				zal worden ondersteund in nieuwere versies. Automaketemplate gebruikt deze functie in:
+				<br/>
+				<pre>plugin.tx_automaketemplate_pi1.elements.[TAG].str_replace.[key].useRPFunc = ereg_replace</pre>
+				<br/>
+				In deze version is ondersteuning voor preg_replace toegevoegd. Het omzetten van ereg-expressies gebeurt meestal
+				door:
+				<ul>
+					<li>* vervang alle schuine strepen ('/') door '\/'</li>
+					<li>* voeg een schuine streep toe aan het begin en eind van de expressie</li>
+				</ul>
+				Let op: er is een aantal verschillen tussen ereg-expressies en preg-expressies.<br />
+				<strong>Ondersteuning voor ereg_replace zal verdwijnen zodra TYPO3 4.6 uitkomt (deze zal PHP 5.3 vereisen).</strong>]]>
+			</label>
+		</languageKey>
+</data>
+</T3locallang>

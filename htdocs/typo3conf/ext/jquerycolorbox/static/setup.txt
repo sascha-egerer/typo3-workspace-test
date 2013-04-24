@@ -1,0 +1,4 @@
+page.includeJSlibs.jquery = EXT:jquerycolorbox/res/js/jquery.js
+page.includeJS.lightbox = EXT:jquerycolorbox/res/js/jquery.colorbox-min.js
+page.includeJS.lightboxMain = EXT:jquerycolorbox/res/js/main.js
+page.includeCSS.lightbox = EXT:jquerycolorbox/res/css/colorbox.css

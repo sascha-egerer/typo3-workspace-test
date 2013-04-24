@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html
+     PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>Template: introduction package</title>
+	</head>
+
+	<body>
+		<div>
+			<h2>Choose a package</h2>
+			<!-- ###TEMPLATE### begin-->
+					<input id="systemToInstallIntroduction" type="radio" name="systemToInstall" value="Introduction" checked="checked" />
+					<label for="systemToInstallIntroduction"><strong>Introduction package (recommended)</strong><br />
+					This will install a TYPO3 system including a demo website with all basic configuration, content elements and a few extensions.</label><br />
+			<!-- ###TEMPLATE### end-->
+			<!-- ###PROGRESS_MESSAGE### begin -->
+			<div id="installationInProgress_Introduction" style="display:none">
+				<strong>
+					- Setting up the database<br /><br />
+					- Unpacking system files<br /><br />
+					- Importing Introduction Package
+				</strong>
+			</div>
+			<!-- ###PROGRESS_MESSAGE### end -->
+		</div>
+	</body>
+</html>

@@ -1,0 +1,28 @@
+{namespace n=Tx_News_ViewHelpers}
+<!--
+	=====================
+		Partials/List/Item.html
+-->
+<div class="news-latest-item">
+	<!-- header -->
+	<div class="header">
+		<h3>
+			<n:link newsItem="{newsItem}" settings="{settings}">
+				{newsItem.title}
+			</n:link>
+		</h3>
+	</div>
+
+	<!-- teaser text -->
+	<div class="teaser-text">
+		<f:if condition="{newsItem.teaser}">
+				<f:then>
+					<f:format.html>{newsItem.teaser}</f:format.html>
+				</f:then>
+				<f:else>
+					<f:format.html><f:format.crop maxCharacters="{settings.cropMaxCharacters}" respectWordBoundaries="true">{newsItem.bodytext}</f:format.crop></f:format.html>
+				</f:else>
+		</f:if>
+	</div>
+
+</div>

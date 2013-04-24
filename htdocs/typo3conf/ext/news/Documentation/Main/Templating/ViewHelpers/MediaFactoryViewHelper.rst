@@ -1,0 +1,52 @@
+MediaFactoryViewHelper
+---------------------------
+
+**Type:** Basic
+
+
+General properties
+^^^^^^^^^^^^^^^^^^^^^^^
+
+.. t3-field-list-table::
+ :header-rows: 1
+
+ - :Name: Name:
+   :Type: Type:
+   :Description: Description:
+   :Default value: Default value:
+
+ - :Name:
+         \* classes
+   :Type:
+         string
+   :Description:
+         
+   :Default value:
+         
+
+ - :Name:
+         \* element
+   :Type:
+         Tx\_News\_Domain\_Model\_Media
+   :Description:
+         
+   :Default value:
+         
+
+ - :Name:
+         \* height
+   :Type:
+         integer
+   :Description:
+         
+   :Default value:
+         
+
+ - :Name:
+         \* width
+   :Type:
+         integer
+   :Description:
+         
+   :Default value:
+

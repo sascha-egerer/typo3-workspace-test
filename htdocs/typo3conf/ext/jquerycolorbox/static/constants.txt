@@ -1,0 +1,1 @@
+styles.content.imgtext.linkWrap.lightboxEnabled = 1

@@ -1,0 +1,6 @@
+The following extensions and versions are available:
+automaketemplate: 0.1.3
+jquerycolorbox: 0.0.1
+news: 2.1.0
+realurl: 1.12.4+46807
+wt_spamshield: 0.9.0

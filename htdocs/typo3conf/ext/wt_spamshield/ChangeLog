@@ -1,0 +1,16 @@
+0.9.0
+	2012-12-26
+	Bjoern Jacob <bjoern.jacob@tritum.de>
+
+	* Release of wt_spamshield 0.9.0
+	* ADD Feature #44233: Make Akismet available for powermail 1.x
+	* ADD feature #43994: t3_blog integration
+	* ADD feature #31962: ke_userregister integration
+	* ADD feature #12793: improved http-check
+	* FIX #38288: compatibility with TYPO3 4.7
+	* FIX #33545: Little error in static/settings/setup.txt
+	* FIX #32538: tx_wtspamshield_log.pageid in DB always the same
+	* FIX #32079: message definition on wrong template position
+	* FIX #7005: superfluous tt_news piVars appended when redirected to "spam recognized page"
+
+For older releases / changes see doc/manual.sxw

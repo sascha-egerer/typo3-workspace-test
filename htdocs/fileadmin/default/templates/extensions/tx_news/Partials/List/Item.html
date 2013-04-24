@@ -1,0 +1,129 @@
+{namespace n=Tx_News_ViewHelpers}
+<!--
+	=====================
+		Partials/List/Item.html
+-->
+<div class="news-list-item"
+	 xmlns:f="http://www.w3.org/1999/html">
+	<!-- header -->
+	<div class="header">
+		<h3>
+			<!-- date -->
+			<span class="news-list-date">
+				<f:format.date format="m/d/Y">{newsItem.datetime}</f:format.date>
+			</span>
+
+			<n:link newsItem="{newsItem}" settings="{settings}">
+				{newsItem.title}
+			</n:link>
+		</h3>
+	</div>
+
+	<f:if condition="{newsItem.media}">
+		<!-- media preview element -->
+		<f:then>
+		<div class="news-img-wrap">
+			<n:link newsItem="{newsItem}" settings="{settings}">
+				<f:if condition="{newsItem.mediaPreviews}">
+					<f:then>
+						<f:alias map="{mediaElement: newsItem.mediaPreviews.0}">
+							<f:if condition="{mediaElement.type} == 0">
+								<f:image
+									src="uploads/tx_news/{mediaElement.image}"
+									title="{mediaElement.title}"
+									alt="{mediaElement.alt}"
+									maxWidth="{settings.list.media.image.maxWidth}"
+									maxHeight="{settings.list.media.image.maxHeight}"
+								/>
+							</f:if>
+							<f:if condition="{mediaElement.type} == 1">
+								<f:render partial="Detail/MediaVideo" arguments="{mediaElement: mediaElement}"/>
+							</f:if>
+							<f:if condition="{mediaElement.type} == 2">
+								<f:render partial="Detail/MediaHtml" arguments="{mediaElement: mediaElement}"/>
+							</f:if>
+							<f:if condition="{mediaElement.type} == 3">
+								<n:format.dam as="dam" uid="{mediaElement.uid}">
+									<f:image src="{dam.file_path}{dam.file_name}" title="{dam.title}"  alt="{dam.alt_text}" maxWidth="{settings.detail.media.image.maxWidth}" />
+								</n:format.dam>
+							</f:if>
+						</f:alias>
+					</f:then>
+					<f:else>
+						<f:if condition="{settings.displayDummyIfNoMedia}">
+							<span class="no-media-element">
+									<f:image
+										src="typo3conf/ext/news/Resources/Public/Images/dummy-preview-image.png"
+										title=""
+										alt=""
+										maxWidth="{settings.list.media.image.maxWidth}"
+										maxHeight="{settings.list.media.image.maxHeight}"
+									/>
+							</span>
+						</f:if>
+					</f:else>
+				</f:if>
+			</n:link>
+		</div>
+		</f:then>
+		<f:else>
+			<f:if condition="{settings.displayDummyIfNoMedia}">
+				<f:then>
+					<div class="news-img-wrap">
+						<n:link newsItem="{newsItem}" settings="{settings}">
+							<span class="no-media-element">
+								<f:image
+									src="typo3conf/ext/news/Resources/Public/Images/dummy-preview-image.png"
+									title=""
+									alt=""
+									maxWidth="{settings.list.media.image.maxWidth}"
+									maxHeight="{settings.list.media.image.maxHeight}"
+								/>
+							</span>
+						</n:link>
+					</div>
+				</f:then>
+			</f:if>
+		</f:else>
+	</f:if>
+
+	<!-- teaser text -->
+	<div class="news-list-subheader">
+		<f:if condition="{newsItem.teaser}">
+				<f:then>
+					<f:format.html>{newsItem.teaser}</f:format.html>
+				</f:then>
+				<f:else>
+					<f:format.html><f:format.crop maxCharacters="{settings.cropMaxCharacters}" respectWordBoundaries="true">{newsItem.bodytext}</f:format.crop></f:format.html>
+				</f:else>
+		</f:if>
+	</div>
+
+	<!-- footer information -->
+	<div class="footer">
+			<!-- categories -->
+		<span class="news-list-categories">
+			Categories:
+			<f:if condition="{newsItem.categories">
+				<f:for each="{newsItem.categories}" as="category" iteration="iteration">
+					<f:if condition="{iteration.isLast">
+						<f:then>
+							{category.title}
+						</f:then>
+						<f:else>
+							{category.title},
+						</f:else>
+					</f:if>
+				</f:for>
+			</f:if>
+		</span>
+
+		<!-- author -->
+		<f:if condition="{newsItem.author}">
+			<span class="hidden">. </span>
+			<span class="news-list-author">
+				<f:translate key="author" arguments="{0:newsItem.author}"/>
+			</span>
+		</f:if>
+	</div>
+</div>

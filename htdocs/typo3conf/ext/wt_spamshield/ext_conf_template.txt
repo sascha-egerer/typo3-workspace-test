@@ -1,0 +1,29 @@
+# cat=basic//010; type=boolean; label= Use Name Check: Enable or disable name check. Simple comparison of first and last name. If the values are equal the post vars will be ignored.
+useNameCheck = 1
+
+# cat=basic//020; type=int [0-100]; label= Use Link Check: Set the maximum number of links (http, https, ftp) within a message. If you want to allow 3 links enter "3". If you want no links at all enter "0". "-1" disables this check completely.
+usehttpCheck = 3
+
+# cat=basic//030; type=text; label= Use Unique Check: Enter different field names (separated by comma) which should not be equal. Example for powermail: uid1 = first name and uid2 = last name -> "uid1,uid2". You can add more than one condition by splitting them with semicolons. Example for powermail: uid1 = first name, uid2 = last name, uid3 = address, uid1 and uid3 should not be equal as well as uid2 and uid3 should not be equal but uid1 and uid2 can be equal -> "uid1,uid3[semicolon]uid2,uid3".
+notUnique = 
+
+# cat=basic//040; type=boolean; label= Use Honeypod Check: A non-visible input field is added to your form. If the field is filled the message is handled as spam.
+honeypodCheck = 1
+
+# cat=basic//050; type=boolean; label= Use Session Check: Enable or disable session check. As soon as a form is generated a timestamp is stored in the session. Only if this timestamp is available during the submit process the database entry will follow (avoids POST values from outside your website).
+useSessionCheck = 1
+
+# cat=basic//060; type=int [0-3600]; label= Session start time (s): Minimum time frame between entering the form page and submiting the form. 0 for disable.
+SessionStartTime = 10
+
+# cat=basic//070; type=int [0-3600]; label= Session end time (s): Maximum time frame between entering the form page and submiting the form. 0 for disable.
+SessionEndTime = 600
+
+# cat=basic//080; type=text; label= Akismet Key: Enter your Akismet key to activate Akismet check (signup at https://akismet.com/signup/).
+AkismetKey =
+
+# cat=basic//090; type=text; label= Send email if spam: Enter an email address if you would like to receive an email if spam was recognized (e.g. email@domain.org).
+email_notify =
+
+# cat=basic//100; type=int; label= PID for logs: Enter a PID for saving spam log entries (-2 for current page, -1 deactivates logging, 0 for root page, 1 for PID 1 etc.).
+pid = 0

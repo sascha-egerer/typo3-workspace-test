@@ -1,0 +1,23 @@
+11-02-13 Jigal van Hemert | alterNET Internet BV <support@alternet.nl>
+
+	* CGL applied
+	* refactoring of variable names
+	* modern look to icon
+
+10-10-31 Jigal van Hemert | alterNET Internet BV <support@alternet.nl>
+
+	* Fix issue #15296 : add support for preg_replace (thanks to Arjen Hoekema)
+
+09-11-13 Jigal van Hemert | alterNET Internet BV <support@alternet.nl>
+
+	* Fix issue #1648, #10359, #5399 : 'empty' elements not handled correctly in core
+	* Fix issue #3105, #4460 : hash ident too long
+
+09-08-11 Jigal van Hemert | alterNET Internet BV <support@alternet.nl>
+
+	* Fix issue #4460
+
+09-06-22 Jigal van Hemert | alterNET Internet BV <support@alternet.nl>
+
+	* Fix issue #563,#415, #5367
+	* Manual in new template	

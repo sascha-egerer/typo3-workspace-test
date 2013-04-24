@@ -1,0 +1,14 @@
+# wt_spamshield: Include protection for standard mailform
+includeLibs.spamshield = EXT:wt_spamshield/ext/class.tx_wtspamshield_defaultmailform.php
+
+tt_content.mailform = COA_INT
+tt_content.mailform {
+	20.stdWrap {
+		preUserFunc = tx_wtspamshield_defaultmailform->generateSession
+		preUserFunc.ifOutdated = 1
+
+		# ToDo: field outside of form tag, see forge #33620
+		innerWrap = | <input name="wt_spamshield_honey" type="text" style="position: absolute; margin: 0 0 0 -9999px;" value="" />
+		no_cache = 1
+	}
+}

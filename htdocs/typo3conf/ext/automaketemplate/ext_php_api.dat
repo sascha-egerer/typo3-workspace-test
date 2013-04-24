@@ -1,0 +1,65 @@
+a:2:{s:4:"meta";a:3:{s:5:"title";s:19:"Auto-parse template";s:5:"descr";s:0:"";s:7:"options";a:2:{s:10:"usageCount";s:1:"1";s:19:"includeCodeAbstract";s:1:"1";}}s:5:"files";a:1:{s:14:"MD5_c303313da0";a:5:{s:8:"filename";s:37:"pi1/class.tx_automaketemplate_pi1.php";s:8:"filesize";i:12076;s:6:"header";a:5:{s:4:"text";s:83:"
+
+Plugin class - instantiated from TypoScript. See documentation in doc/manual.sxw
+";s:5:"param";a:0:{}s:6:"return";a:2:{i:0;s:6:"[type]";i:1;s:3:"...";}s:5:"other";a:3:{i:0;s:42:"@author	Kasper Skaarhoj <kasper@typo3.com>";i:1;s:14:"@package TYPO3";i:2;s:31:"@subpackage tx_automaketemplate";}s:11:"other_index";a:3:{s:7:"@author";a:1:{i:0;s:34:"Kasper Skaarhoj <kasper@typo3.com>";}s:8:"@package";a:1:{i:0;s:6:"TYPO3 ";}s:11:"@subpackage";a:1:{i:0;s:20:"tx_automaketemplate ";}}}s:3:"DAT";a:4:{i:1;a:8:{s:6:"header";s:52:"class tx_automaketemplate_pi1 extends tslib_pibase {";s:5:"class";i:1;s:11:"parentClass";s:23:"tx_automaketemplate_pi1";s:4:"cDat";a:5:{s:4:"text";s:83:"
+
+Plugin class - instantiated from TypoScript. See documentation in doc/manual.sxw
+";s:5:"param";a:0:{}s:6:"return";a:2:{i:0;s:6:"[type]";i:1;s:3:"...";}s:5:"other";a:3:{i:0;s:42:"@author	Kasper Skaarhoj <kasper@typo3.com>";i:1;s:14:"@package TYPO3";i:2;s:31:"@subpackage tx_automaketemplate";}s:11:"other_index";a:3:{s:7:"@author";a:1:{i:0;s:34:"Kasper Skaarhoj <kasper@typo3.com>";}s:8:"@package";a:1:{i:0;s:6:"TYPO3 ";}s:11:"@subpackage";a:1:{i:0;s:20:"tx_automaketemplate ";}}}s:7:"content";a:2:{i:0;s:371:"
+		// Default extension plugin variables:
+	var $prefixId = 'tx_automaketemplate_pi1';		// Same as class name
+	var $scriptRelPath = 'pi1/class.tx_automaketemplate_pi1.php';	// Path to this script relative to the extension dir.
+	var $extKey = 'automaketemplate';	// The extension key.
+
+		// Others:
+	var $htmlParse;		// Is set to an object; Instance of t3lib_parsehtml
+	
+
+	";i:1;i:-1;}s:12:"content_size";i:371;s:13:"content_lines";i:10;s:6:"atLine";i:54;}i:3;a:7:{s:6:"header";s:31:"function main($content,$conf)	{";s:11:"parentClass";s:23:"tx_automaketemplate_pi1";s:4:"cDat";a:3:{s:4:"text";s:40:"
+
+Main function, called from TypoScript
+";s:5:"param";a:2:{i:0;a:2:{i:0;s:6:"string";i:1;s:32:"Input content. Not used. Ignore.";}i:1;a:2:{i:0;s:5:"array";i:1;s:39:"TypoScript configuration of the plugin.";}}s:6:"return";a:2:{i:0;s:6:"string";i:1;s:12:"HTML output.";}}s:7:"content";a:2:{i:0;s:507:"		
+			// Setting configuration internally:
+		$this->conf = $conf;
+		
+			// Getting content:
+		$content = $this->cObj->cObjGetSingle($conf['content'],$conf['content.'],'content');
+
+			// Making cache-hash:
+		$hashConf = $conf;
+		unset($hashConf['getBodyTag']);
+		$hash = md5($content.'|'.serialize($hashConf));
+		
+			// Looking for a cached version of the parsed template:
+		$
+[...]
+ ($this->conf['getBodyTag'])	{
+			return $this->bodyTagFound?$this->bodyTagFound:'';
+		} else {
+			return $content;
+		}
+	}
+
+	";i:1;i:1;}s:12:"content_size";i:2832;s:13:"content_lines";i:92;s:6:"atLine";i:72;}i:5;a:4:{s:6:"header";s:44:"function recursiveBlockSplitting($content)	{";s:11:"parentClass";s:23:"tx_automaketemplate_pi1";s:4:"cDat";a:4:{s:4:"text";s:62:"
+
+Processing HTML content based on element list (block tags!)
+";s:5:"param";a:1:{i:0;a:2:{i:0;s:6:"string";i:1;s:22:"HTML content to split.";}}s:6:"return";a:2:{i:0;s:6:"string";i:1;s:22:"Processed HTML content";}s:6:"access";s:7:"private";}s:6:"atLine";i:172;}i:7;a:7:{s:6:"header";s:36:"function singleSplitting($content)	{";s:11:"parentClass";s:23:"tx_automaketemplate_pi1";s:4:"cDat";a:4:{s:4:"text";s:63:"
+
+Processing HTML content based on element list (single tags!)
+";s:5:"param";a:1:{i:0;a:2:{i:0;s:6:"string";i:1;s:22:"HTML content to split.";}}s:6:"return";a:2:{i:0;s:6:"string";i:1;s:22:"Processed HTML content";}s:6:"access";s:7:"private";}s:7:"content";a:2:{i:0;s:507:"	
+			// Split HTML source:
+		$parts = $this->htmlParse->splitTags($this->elementList,$content);
+		
+			// Traverse the parts:
+		foreach($parts as $k => $v)	{
+			if ($k%2)	{
+			
+					// Initializing:
+				$firstTag = $v;	// The first tag's content
+				$firstTagName = $this->htmlParse->getFirstTagName($v);	// The 'name' of the first tag
+
+					// Check if we are going to do pro
+[...]
+)	{
+	include_once($TYPO3_CONF_VARS[TYPO3_MODE]['XCLASS']['ext/automaketemplate/pi1/class.tx_automaketemplate_pi1.php']);
+}
+?>";i:1;i:1;}s:12:"content_size";i:2218;s:13:"content_lines";i:53;s:6:"atLine";i:277;}}s:10:"usageCount";a:4:{s:12:"H_554cc39338";a:2:{s:24:"_searchtime_milliseconds";d:21;s:15:"_functionHeader";s:52:"class tx_automaketemplate_pi1 extends tslib_pibase {";}s:12:"H_e8476b0991";a:2:{s:24:"_searchtime_milliseconds";d:7;s:15:"_functionHeader";s:31:"function main($content,$conf)	{";}s:12:"H_aef4fbb08a";a:4:{s:3:"ALL";a:2:{s:11:"objectUsage";i:2;s:5:"TOTAL";i:2;}s:14:"MD5_c303313da0";a:3:{s:8:"fileName";s:37:"pi1/class.tx_automaketemplate_pi1.php";s:11:"objectUsage";i:2;s:5:"TOTAL";i:2;}s:24:"_searchtime_milliseconds";d:10;s:15:"_functionHeader";s:44:"function recursiveBlockSplitting($content)	{";}s:12:"H_912b991aff";a:4:{s:3:"ALL";a:2:{s:11:"objectUsage";i:1;s:5:"TOTAL";i:1;}s:14:"MD5_c303313da0";a:3:{s:8:"fileName";s:37:"pi1/class.tx_automaketemplate_pi1.php";s:11:"objectUsage";i:1;s:5:"TOTAL";i:1;}s:24:"_searchtime_milliseconds";d:1;s:15:"_functionHeader";s:36:"function singleSplitting($content)	{";}}}}}

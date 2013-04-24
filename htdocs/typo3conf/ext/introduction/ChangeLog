@@ -1,0 +1,253 @@
+2011-03-04  Peter Beernink <p.beernink@drecomm.nl>
+
+	* Fixed bug #13271: Added exclude fields for normal users
+	* Fixed bug #13268: Added configuration to allow tt_new categories
+
+2011-02-04  Peter Beernink <p.beernink@drecomm.nl>
+
+	* Fixed bug #12639: Added additional } in sys_template 'menu.breadcrumb' (Thanks to Ernesto Baschny)
+	* Fixed bug #12459: Updated database for TYPO 4.5.0
+	* Fixed bug #12473: Updated the RealURL and wt_spamshield extensions. Updated the database accordingly
+
+2011-01-21  Peter Beernink <p.beernink@drecomm.nl>
+
+	* Fixed bug #30063: Install Tool Step 4 - wrong rendering (Thanks to Thorsten Kahler)
+
+2011-01-14  Peter Beernink <p.beernink@drecomm.nl>
+
+	* Fixed bug #11780: Place recheck button when directories are not writable.
+
+2011-01-07  Peter Beernink <p.beernink@drecomm.nl>
+
+	* Fixed bug: Backend users where not able to place content in right/left column. Added the exclude field.
+	* Fixed bug #11770: After copying all files, fix permissions.
+	* Fixed bug #11764: Removed double slashes which caused an error in some browsers.
+	* Fixed bug #11919: Changed the author of the package
+	* Fixed bug #9826: User tools module added to the demo users. Thanks to Ben van 't Ende
+	* Bugfix: No be_users where available anymore. Added them.
+	* Resolved issue #11378: Added link to the Getting Started manual. Thanks to Ben van 't Ende
+
+2010-12-23  Peter Beernink <p.beernink@drecomm.nl>
+
+	* Fixed bug #9078: Removed fieldset and legend from the login form.
+	* Image placement in the RTE is not supported. Added RTE configuration.
+
+2010-12-22  Peter Beernink <p.beernink@drecomm.nl>
+
+	* Fixed PHP errors in the sys_log table due to missing argument in TYPO3_DB->quoteStr
+	* Fixed bug #11405: Configured the 404 page in localconf.php. Thanks to Christian Boltz
+	* Fixed bug #11577: Updated the Extension importer class to work with the refactored Extension Manager. Thanks to Ernesto Baschny
+
+2010-11-04  Peter Beernink <p.beernink@drecomm.nl>
+
+	* Fixed bug #10610: An error message will be displayed when the required directories are not writable.
+	* Fixed bug #9079: The alignment of the radio buttons has been fixed.
+
+2010-10-22  Peter Beernink <p.beernink@drecomm.nl>
+
+	* Fixed bug #10356: Added a new SQL file with the lightbox configuration and sample sys_news records
+	* Resolved issue #9699: Added the jquerycolorbox extension
+
+2010-10-14  Peter Beernink <p.beernink@drecomm.nl>
+
+	* Removed doc/wizard_from.* files. Resolves #10140
+
+2010-09-30  Peter Beernink <p.beernink@drecomm.nl>
+
+	* Fixed bug which caused the introduction package to generate a blank page on some installations.
+ 
+2010-09-17  Peter Beernink <p.beernink@drecomm.nl>
+
+	* Fixed bug #9439: Checked for the TYPO3 version to determine the EM location
+
+2010-06-02  Ben van 't Ende <ben@typo3.org>
+
+	* Fixed bug #9097: Changed title attribute on link from 'title="TYPO3 Open Source ECMS"' to 'title="TYPO3 Open Source CMS"'
+
+2010-07-30  Ben van 't Ende <ben@typo3.org>
+
+	* Fixed bug #9097: Changed Powered by in footer to "TYPO3 Enterprise Open Source CMS (Version 4.4.2)" for SEO reasons. Linked "TYPO3 Enterprise Open Source CMS" to typo3.org.
+	* Fixed bug #8501: Added "plugin.tx_indexedsearch.search.exactCount = 1" to template TypoScript Templates/extension_configuration/plugin.indexed_search
+	* Fixed bug #9016: Changed "int+" to "string" in Template "ROOT" on page "TypoScript Templates" for menu.top.pages and plugin.tt_news.pid_list
+
+2010-07-29  Ben van 't Ende <ben@typo3.org>
+
+	* Fixed bug #9076: Added news and news categories to Tables (modify) to Backend usergroup "Advanced editors". Also removed Alternative Page Language and Internal Note form Tables (listing) as these were already listed in Tables (modify).
+
+2010-07-27  Peter Beernink <p.beernink@drecomm.nl>
+
+	* Fixed bug #8599: 1-2-3 installer not working in Internet Explorer 7
+	* Resolved issue #8775: Unit tests hould not be in package
+	* Resolved issue #8399: Added the wt_spamshield extension for spam prevention of the contact form
+
+2010-06-21  Ingo Renner  <ingo@typo3.org>
+
+	* Fixed the indexedsearch HTML template, missing some id parameters
+	* Added an id parameter to the felogin login-form form tag
+	* Fixed the felogin login-form, the submit button was named "submit", so that the submit() method of the form could not be called
+
+2010-06-20  Peter Beernink  <p.beernink@drecomm.nl>
+
+	* Fixed bug #7944: Removed the use of mysql_real_escape_string in favour of fullQuoteStr()
+	  and don't change character set when DBAL is loaded.
+
+2010-06-17  Peter Beernink  <p.beernink@drecomm.nl>
+
+	* Feature #8296: A message is displayed telling the user that the installation is in progress.
+
+2010-06-16  Peter Beernink  <p.beernink@drecomm.nl>
+
+	* Removed DELAYED from INSERT statements
+
+2010-06-13  Michiel Roos  <michiel@netcreators.com>
+
+	* Fixed bug #7610: Error while on the extra step (accidentally committed earlier)
+
+2010-06-15  Peter Beernink  <p.beernink@drecomm.nl>
+
+	* Fixed bug #8197: Password of fe_users is not updated anymore
+	* Updated RealURL extension to 1.9.3
+	* Updated Template Auto-parser extension to 0.1.2
+	* Updated tt_news extension to 3.0.1
+	* Feature #8245: Added the possibility to use subpackages. Changed directory structure for this.
+
+2010-06-13  Michiel Roos  <michiel@netcreators.com>
+
+	* Change: updated changelog
+
+2010-06-12  Michiel Roos  <michiel@netcreators.com>
+
+	* Change: realurl_autoconf.php: added realurl configuration rootpage_id and expireDays
+	* Fixed bug #7681: Condition Internet Explorer 7 does not work and layout not good
+	* Fixed bug #7667: replaced default locale_all=english with en_US.UTF-8
+	* Fixed bug #8188: Donate link has target _blank
+
+2010-06-11  Michiel Roos  <michiel@netcreators.com>
+
+	* Fixed Bug #7648: typolinkCheckRootline and typolinkEnableLinksAcrossDomains should be left at the default
+	*	Fixed Bug #7649: config.sendCacheHeaders = 1, but no cache headers are sent
+
+2010-06-10  Michiel Roos  <michiel@netcreators.com>
+
+	* Fixed Bug #7633: Best Practices: not all pages must be indexed
+	* Fixed Bug #7592: Set Permissions and clean dam database table entries
+	* Fixed Bug #7646: Languages and Characters should be ordered alphabeticaly
+	* Updated realurl_autoconf.php
+	* Updated the uploads folder
+	* Fixed bug #7729: Introduction package is still using CSS Styled Content 4.2
+	* Cleanup temporary files
+
+2010-05-03  Benjamin Mack  <benni@typo3.org>
+
+	* Reverted the last change as now the install tool doesn't run through anymore
+	* Exchanged ext_icon.gif to have a nice TYPO3 logo now
+
+2010-05-01 Peter Beernink  <p.beernink@drecomm.nl>
+
+	* Implemented automatic installation of required extensions. Fixes #7293.
+	* Changed the usage of t3lib_div::GPvar() to t3lib_div::_GP() due to deprecation.
+
+2010-04-28 Peter Beernink  <p.beernink@drecomm.nl>
+
+	* Added images which are used in the new CSS and made the paths relative.
+	* Changed the default color and added support for multiple CSS files to change.
+	* Added new CSS file to the sys_templates in the introduction.sql
+
+2010-04-27 Patrick Broens  <patrick@patrickbroens.nl>
+
+	* Fixed bug #7477: Hooks in the install tool have changed again
+	* Feature #7132: Change the extension key from 'demo' to 'introduction'
+
+2010-04-23 Peter Beernink  <p.beernink@drecomm.nl>
+
+	* Changed the name of the CSS classes as they where changed in the CSS of the install extension. Fixes #7441.
+
+2010-04-20 Peter Beernink  <p.beernink@drecomm.nl>
+
+	* Bugfix: Before perfoming GD functions, check if GD is available. Fixes #7384
+
+2010-04-15 Peter Beernink  <p.beernink@drecomm.nl>
+
+	* Set the correct number of additional steps.
+	* Changed the handling of step '5' in order not to skip a step.
+	* Changed styling of the screens according to the styling of installer. Fixes #7160
+
+2010-04-07 Peter Beernink  <p.beernink@drecomm.nl>
+
+	* Made the hooks compatible with the new install tool. Addresses #7125. Some tweaking needed.
+
+2010-03-31 Peter Beernink  <p.beernink@drecomm.nl>
+
+	* Added the generated realurl_autoconf.php which now includes configuration for tt_news. Fixes #6905.
+
+2010-03-21 Peter Beernink  <p.beernink@drecomm.nl>
+
+	* Removed trailing slash in the URL configuration. Addresses issue #5465.
+
+2010-02-14 Daniel Bruessler  <mail@danielbruessler.de>
+
+	* Added the first version of manual.sxw, for diff: manual.txt
+
+2009-11-20 Peter Beernink  <p.beernink@drecomm.nl>
+
+	* Added method to change datababase character set
+	* Moved modifications of localconf one step forward
+	* Changed required password length
+	* Added addional step to choose between blank and demo system
+	* Added an extra View for when a blank system is installed
+	* Styling of different screens
+	* Changed extension key from introduction to demo
+
+2009-11-19 Peter Beernink  <p.beernink@drecomm.nl>
+
+	* Minor addition to the configuration
+	* Minor text modifications
+	* Choosen color is remembered when no password is entered
+	* The color is modified in the CSS to the choosen color
+	* Modified the importDatabase function
+	* Added a preview icon next to the colorpicker
+
+2009-11-18 Peter Beernink  <p.beernink@drecomm.nl>
+
+	* Minor bugfix: Wrong characterset was written into the localconf.php
+	* Made an abstract view class
+	* Added a check whether mod_rewrite is enabled
+	* Copy default _.htaccess to .htaccess if none exist
+	* Added a check whether or not the .htaccess is applied (AllowOverride)
+	* Update the database to enable or disable realURL
+	* Update the database to apply the correct base href
+	* Checked whether the password was entered
+	* Added the colorpicker to the install tool, but color is not processed yet
+
+2009-11-17 Peter Beernink  <p.beernink@drecomm.nl>
+
+	* Added additional step
+	* The InstallTool password is changed to the given password
+	* Added dummy data to import into the database
+	* Added method to import package sql during step 5
+	* Passwords of fe_users and be_users are changed
+	* ENABLE_INSTALL_TOOL is unlinked, when not possible, a warning is displayed
+	* Added method to import files from the extension to the correct place
+	* Added some dummy files to copy
+	* Some code cleanup
+	* Added the posibility to define additional settings to include in localconf.php
+
+2009-11-16 Peter Beernink  <p.beernink@drecomm.nl>
+
+	* Moved configuration methods to Classes/Configuration/Configuration
+	* Added check which TTFdpi to use
+	* Renamed some variables to longer names
+	* Refactored the way the localconf.php was updated, by using the tx_install->setupGeneral()
+	* Added method to try automatically set ImageMagick settings
+	* localconf.php is updated when the additional steps are executed.
+
+2009-11-16 Patrick Broens  <patrick@patrickbroens.nl>
+
+	* Moved Classes/Installer.php to Classes/Controller
+	* Renamed Classes/Controller/Installer.php to Controller.php
+	* Added a simple view with templating to show text
+
+2009-11-15 Peter Beernink  <p.beernink@drecomm.nl>
+
+	* Initial code generated with kickstarter, restructured file structure
+	* Created basic hook implementation

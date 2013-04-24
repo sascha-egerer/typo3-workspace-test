@@ -1,0 +1,56 @@
+###
+# This are the default TS-constants for wt_spamshield
+##
+
+plugin.wt_spamshield {
+	# cat=wt_spamshield main//0010; type=boolean; label= Comments active: Enable spamshield for comments
+	comments = 0
+
+	# cat=wt_spamshield main//0020; type=boolean; label= Mailform active: Enable spamshield for default mailform
+	mailform = 0
+
+	# cat=wt_spamshield main//0030; type=boolean; label= ke_userregister active: Enable spamshield for ke_userregister
+	ke_userregister = 0
+
+	# cat=wt_spamshield main//0040; type=boolean; label= Powermail active: Enable spamshield for powermail
+	powermail = 0
+
+	# cat=wt_spamshield main//0050; type=boolean; label= t3_blog active: Enable spamshield for t3_blog
+	t3_blog = 0
+
+	# cat=wt_spamshield main//0060; type=boolean; label= ve_guestbook active: Enable spamshield for ve_guestbook
+	ve_guestbook = 0
+
+	# cat=wt_spamshield main//0200; type=text; label= Mailform Redirect: Redirect URL for default mailform
+	redirect_mailform =
+
+	# cat=wt_spamshield main//0210; type=text; label= ve_guestbook Redirect: Redirect URL for ve_guestbook
+	redirect_ve_guestbook =
+
+	# cat=wt_spamshield main//0300; type=text; label= Message blacklist: Message for Blacklist error
+	message.blacklist = Sorry, you are blacklisted!
+
+	# cat=wt_spamshield main//0310; type=text; label= Message Session 1: Message for Session 1
+	message.session1 = Sorry, but you have waited too long to send form values
+
+	# cat=wt_spamshield main//0320; type=text; label= Message Session 2: Message for Session 2
+	message.session2 = Please wait some seconds before sending form
+
+	# cat=wt_spamshield main//0330; type=text; label= Message Session 3: Message for Session 3
+	message.session3 = No tstamp set in session
+
+	# cat=wt_spamshield main//0340; type=text; label= Message httpcheck: Message for httpcheck
+	message.httpcheck = It is not allowed to use more than %s links within this form
+
+	# cat=wt_spamshield main//0350; type=text; label= Message uniquecheck: Message for uniquecheck
+	message.uniquecheck = It is not allowed to use same values in different fields
+
+	# cat=wt_spamshield main//0360; type=text; label= Message namecheck: Message for namecheck
+	message.namecheck = It is not allowed to use the same firstname and lastname
+
+	# cat=wt_spamshield main//0370; type=text; label= Message akismet: Message for akismet
+	message.akismet = Akismet detected your entry as spam entry
+
+	# cat=wt_spamshield main//0380; type=text; label= Message honeypod: Message for honeypod
+	message.honeypod = Entry in honeypod recognized!
+}

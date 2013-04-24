@@ -1,0 +1,5 @@
+Format / HscViewHelper
+---------------------------
+
+**Type:** Basic
+

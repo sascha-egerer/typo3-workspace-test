@@ -1,0 +1,165 @@
+﻿
+EXT: The official TYPO3 Introduction Package
+Extension Key: introduction
+Language: en
+Keywords: forBeginners, forIntermediates, forAdmins
+Copyright 2000-2008, UsabilityTeam/ Søren Madsen, Patrick Broens, Ben van 't Ende, <sma@cs.au.dk>
+
+This document is published under the Open Content License
+available from http://www.opencontent.org/opl.shtml
+
+The content of this document is related to TYPO3 
+- a GNU/GPL CMS/Framework available from www.typo3.org
+
+Table of Contents
+EXT: The official TYPO3 Introduction Package	1
+Introduction	3
+What does it do?	3
+Features of the Introduction Package	3
+[Screenshots]	3
+[Users manual]	4
+FAQ	4
+[Administration]	5
+FAQ	5
+[Configuration]	6
+FAQ	6
+Reference	6
+[Tutorial]	7
+[Known problems]	8
+To-Do list	9
+ChangeLog	10
+[Important guidelines for the manual] 	11
+Issues with Open Office documentation for TYPO3	12
+Inserting images	12
+Paragraph styles	12
+Linking	13
+Meta data and updates	13
+Help by documentation.openoffice.org	13
+
+Introduction
+What does it do?
+The purpose of the Introduction web site package, is to make the introduction of TYPO3 to new users, a more friendly and helping one.
+Features of the Introduction Package
+Easy point and click installation with customizable color theme#
+#A running demo web site which content demonstrates the features of TYPO3
+#Two example extensions - "RealURL" for speaking URL management, and "News" for news management
+#An intensely documented and well thought out Typoscript setup
+ "Best practices" demonstrations of document structure, Typoscript, etc.
+The project is currently aimed at TYPO3 version 4.4, but we hope to be able to include it with forthcoming minor update release of TYPO3 Version 4.3.x
+This project was kick started at the TYPO3 User Experience Week 2009, held 14th - 21st of November in Behringen, Germany
+[Screenshots]
+Screenshots are very much welcome for a visual impression.
+This section will have a link in the EM, so therefore it's very important that it conveys this message.
+Target group: Mostly Developers and administrators, but should be a non-technical and visual presentation.
+This section is required and in some cases it basically tells it all.
+[Users manual]
+Documentation of how to use the extension, how it works, how to apply it if it's a website plugin. A user manual.
+Language should be non-technical, explaining, using small examples.
+Examples: For the "News" plugin this would be a manual showing how to create the news-items, explaining the options etc.
+Target group: Users, Administrators or Developers in that priority. Depends on the extension.
+FAQ
+Possible subsections: FAQ
+
+[Administration]
+Describes how to manage the extension from a superuser point of view. That relates to Page/User TSconfig, permissions, configuration etc.  which administrator level users have access to.
+language should be non/semi-technical, explaining, using small examples.
+Target group: Administrators
+FAQ
+Possible subsections: FAQ
+
+[Configuration]
+Technical information; Installation, Reference of TypoScript, configuration options on system level, how to extend it, the technical details, how to debug it.
+language should be technical, assuming developer knowledge of TYPO3. Small examples/visuals are always encouraged.
+Target group: Developers
+FAQ
+Possible subsections: FAQ
+Subheadlines
+You can produce subheadlines in a section using “Heading 4” or “Heading 5” (normally used for “Examples”)
+Reference
+Possible subsections: Reference (TypoScript)
+Property:
+Data type:
+Description:
+Default:
+allWrap /+stdWrap
+wrap
+Wraps the whole item
+
+wrapItemAndSub 
+wrap
+Wraps the whole item and any submenu concatenated to it.
+
+subst_elementUid
+boolean
+If set, all appearances of the string '{elementUid}' in the total element html-code (after wrapped in .allWrap} is substituted with the uid number of the menu item. 
+This is useful if you want to insert an identification code in the HTML in order to manipulate properties with JavaScript.
+
+RO_chBgColor
+string
+If property RO is set (see below) then you can set this property to a certain set of parameters which will allow you to change the background color of eg. the tablecell when the mouse rolls over you text-link.
+
+Syntax:
+[over-color] | [out-color] | [id-prefix]
+
+Example:
+page = PAGE
+page.typeNum = 0
+page.10 = HMENU
+page.10.wrap = <table border=1>|</table>
+page.10.1 = TMENU
+page.10.1.NO {
+  allWrap = <tr><td valign=top id="1tmenu{elementUid}" style="background:#eeeeee;">|</td></tr>
+  subst_elementUid = 1
+  RO_chBgColor = #cccccc | #eeeeee | 1tmenu
+  RO = 1
+}
+
+This example will start out with the table cells in #eeeeee and change them to #cccccc (and back) when rolled over. The “1tmenu” string is a unique id for the menu items. You may not need it (unless the same menu items are more than once on a page), but the important thing is that the id of the table cell has the exact same label before the {elementUid} (red marks). The other important thing is that you DO set a default background color for the cell with the style-attribute (blue marking). If you do not, Mozilla browsers will behave a little strange by not capturing the mouseout event the first time it's triggered. 
+
+[tsref:(cObject).TEST]
+Example
+Here you would show an example of the stuff from the reference or so:
+page = PAGE
+page.typeNum = 0
+page.10 = TEXT
+page.10.value = HELLO WORLD
+[Tutorial]
+A full point-a-to-b-to-c walk-through of an application of the extension. Include screendumps.
+Language: As tutorials are...
+Target group: Whatever fits.
+
+[Known problems]
+Use this section for important warnings about bugs, problems or performance issues. This is where you should explain shortcomings of the extension, so people are properly warned. Be honest.
+Target group: Mostly Developers
+
+To-Do list
+See http://forge.typo3.org/projects/extension-demo/issues
+ChangeLog
+see http://forge.typo3.org/repositories/changes/extension-demo/trunk/introduction/ChangeLog
+[Important guidelines for the manual] 
+Issues with Open Office documentation for TYPO3
+There are a few important points to make about writing documentation for TYPO3 in Open Office. Please makes sure to follow these.
+Inserting images
+When you insert images you can either:
+Make a copy/paste from eg. Photoshop, but it's REALLY IMPORTANT that you insert the image into Open Office by the menu “Edit > Paste Special” and then select “Bitmap”. If you don't do it in this way the image cannot be shown (since it will not be stored as a PNG internally in the SXW file)
+
+
+Alternatively you can use the traditional way “Insert > Graphics > From file” and insert an image from your harddrive. In particular use this if the image is photographic (JPG) since the internal storage as PNG is not good for photographs.
+Generally please use copy/paste only for screendumps with large areas of similar color (good png-compression) and JPG-files for photographic images. Go for small images, 72 dpi, medium quality.
+Paragraph styles
+Use the paragraph style “Text body” for bodytext
+Use “Heading 1” to “Heading 5” for headers. “Heading 1-3” will be recognized as “sections” on typo3.org. “Heading 4-5” is subheaders, where “Heading 5” is preferrably for “Examples”.
+For code listings, use the style “Preformatted Text” (found under “HTML Styles”). For codelistings in tables there is a custom style called “Table Contents/PRE”.
+This screenshot shows the only paragraph styles allowed in the documents. The ones grayed out are paragraph styles that are used by default for such as the index table or the footer. The others are the ones you are allowed to use.
+
+Linking
+You can make hyperlinks in the documents as absolute URLs. Use menu “Insert > Hyperlink”
+Meta data and updates
+There are three fields of meta-data you have to fill in. First of all go to “File > Properties...”. 
+1.In the “Description” screen you enter the title of the document.  Extension manuals are prefixed “EXT: [extension title]”
+2.In the “User defined” screen you enter your email address as the first field (named “Email” / ”Info 1”)
+3.In the “User defined” screen you enter your full name as the second  field (named “Author” / ”Info 2”)
+Finally you should also insert the correct extension key in the text below the document title, but this is not a meta-data field, just regular text.
+Help by documentation.openoffice.org
+See the international portal for help: http://documentation.openoffice.org
+
