@@ -26,6 +26,7 @@ web_app 'project' do
   template 'web_app.conf.erb'
   docroot '/var/www/workspace_test_environment/htdocs'
   allow_override 'All'
+  directory_index 'index.php index.html'
   server_name 'typo3-workspace-test-environment.dev'
   server_aliases []
   notifies :reload, resources(:service => 'apache2'), :delayed
