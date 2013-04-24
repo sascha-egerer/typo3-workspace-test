@@ -34,7 +34,7 @@ Vagrant::Config.run do |config|
   # Share an additional folder to the guest VM. The first argument is
   # an identifier, the second is the path on the guest to mount the
   # folder, and the third is the path on the host to the actual folder.
-  config.vm.share_folder 'htdocs-folder', '/var/www/workspace_test_environment/htdocs', 'htdocs', :group => 'www-data'
+  config.vm.share_folder 'htdocs-folder', '/var/www/workspace_test_environment/htdocs', 'htdocs', :group => 'www-data', :extra => 'dmode=770,fmode=660'
 
   config.vm.provision :chef_solo do |chef|
     # We're going to download our cookbooks from the web
