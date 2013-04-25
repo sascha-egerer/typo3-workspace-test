@@ -24,3 +24,6 @@ Add domain `typo3-workspace-test-environment.dev` with defined ip address (Defau
 
 	./snapshot.sh 20130424-1626
 
+## Backend user
+
+* admin : password
