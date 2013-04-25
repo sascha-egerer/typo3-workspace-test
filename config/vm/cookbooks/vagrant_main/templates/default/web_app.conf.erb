@@ -9,6 +9,18 @@
     AllowOverride <%= [@params[:allow_override] || "None" ].flatten.join " " %>
     Order allow,deny
     Allow from all
+
+    # PHP error reporting
+    # E_ALL & ~E_NOTICE & ~E_DEPRECATED = 22519
+    php_admin_value error_reporting 22519
+    php_admin_flag log_errors On
+    php_admin_flag display_errors On
+    php_admin_flag html_errors On
+
+    # PHP upload settings
+    php_admin_value upload_max_filesize 8M
+    php_admin_value post_max_size 8M
+
   </Directory>
 
   <Directory />
