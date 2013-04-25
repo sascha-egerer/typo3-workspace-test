@@ -65,4 +65,10 @@ Vagrant::Config.run do |config|
       }
     }
   end
+  config.vm.customize ['modifyvm', :id,
+                       '--memory', 512,
+                       '--name', 'typo3-workspace-test-environment',
+                       '--natdnsproxy1', 'off',
+                       '--natdnshostresolver1', 'on'
+                      ]
 end
