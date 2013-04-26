@@ -1,0 +1,3 @@
+[submodule "htdocs/typo3conf/ext/workspace_test"]
+	path = htdocs/typo3conf/ext/workspace_test
+	url = git@github.com:dkd/workspace_test.git

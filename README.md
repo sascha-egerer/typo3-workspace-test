@@ -2,6 +2,11 @@
 
 ## Installation
 
+## Git submodule
+
+	git submodule init
+	git submodule update
+
 ### Check configured ip address
 
 Check if ip address in `Vagrantfile` is not in use. Default `192.168.156.40`.
