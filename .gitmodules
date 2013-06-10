@@ -4,3 +4,6 @@
 [submodule "config/vm/cookbooks/locale"]
 	path = config/vm/cookbooks/locale
 	url = https://github.com/hw-cookbooks/locale.git
+[submodule "config/vm/cookbooks/vim"]
+	path = config/vm/cookbooks/vim
+	url = https://github.com/opscode-cookbooks/vim.git
