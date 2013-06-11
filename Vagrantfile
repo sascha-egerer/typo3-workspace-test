@@ -42,28 +42,19 @@ Vagrant::Config.run do |config|
 
     # Tell chef what recipe to run. In this case, the `vagrant_main` recipe
     # does all the magic.
-    chef.add_recipe('apt')
-    chef.add_recipe('apache2')
-    chef.add_recipe('apache2::mod_php5')
-    chef.add_recipe('php')
-    chef.add_recipe('php::module_mysql')
-    chef.add_recipe('php::module_curl')
-    chef.add_recipe('php::module_gd')
-    chef.add_recipe('mysql')
-    chef.add_recipe('mysql::server')
     chef.add_recipe('vagrant_main')
 
-    chef.json = {
-      'mysql' => {
-        'server_root_password' => 'iloverandompasswordsbutthiswilldo',
-        'server_repl_password' => 'iloverandompasswordsbutthiswilldo',
-        'server_debian_password' => 'iloverandompasswordsbutthiswilldo',
-        'bind_address' => '127.0.0.1'
-      },
-      'php' => {
-        'conf_dir' => '/etc/php5/apache2'
-      }
-    }
+    #chef.json = {
+    #  'mysql' => {
+    #    'server_root_password' => 'iloverandompasswordsbutthiswilldo',
+    #    'server_repl_password' => 'iloverandompasswordsbutthiswilldo',
+    #    'server_debian_password' => 'iloverandompasswordsbutthiswilldo',
+    #    'bind_address' => '127.0.0.1'
+    #  },
+    #  'php' => {
+    #    'conf_dir' => '/etc/php5/apache2'
+    #  }
+    #}
   end
   config.vm.customize ['modifyvm', :id,
                        '--memory', 512,

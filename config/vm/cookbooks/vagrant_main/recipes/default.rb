@@ -1,6 +1,18 @@
+node.override['mysql']['server_root_password'] = 'iloverandompasswordsbutthiswilldo'
+node.override['mysql']['server_repl_password'] = 'iloverandompasswordsbutthiswilldo'
+node.override['mysql']['server_debian_password'] = 'iloverandompasswordsbutthiswilldo'
+node.override['mysql']['bind_address'] = '127.0.0.1'
+node.override['php']['conf_dir'] = '/etc/php5/apache2'
+
 include_recipe 'apt'
 include_recipe 'apache2'
+include_recipe 'apache2::mod_php5'
+include_recipe 'php'
+include_recipe 'php::module_mysql'
+include_recipe 'php::module_curl'
+include_recipe 'php::module_gd'
 include_recipe 'mysql'
+include_recipe 'mysql::server'
 include_recipe 'database'
 include_recipe 'database::mysql'
 
