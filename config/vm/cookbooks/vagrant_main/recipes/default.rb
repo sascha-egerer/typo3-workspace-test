@@ -5,6 +5,7 @@ node.override['mysql']['bind_address'] = '127.0.0.1'
 node.override['php']['conf_dir'] = '/etc/php5/apache2'
 
 include_recipe 'apt'
+include_recipe 'vim'
 include_recipe 'apache2'
 include_recipe 'apache2::mod_php5'
 include_recipe 'php'
@@ -43,3 +44,5 @@ web_app 'project' do
   server_aliases []
   notifies :reload, resources(:service => 'apache2'), :delayed
 end
+
+package "graphicsmagick"
