@@ -4,8 +4,11 @@ node.override['mysql']['server_debian_password'] = 'iloverandompasswordsbutthisw
 node.override['mysql']['bind_address'] = '127.0.0.1'
 node.override['php']['conf_dir'] = '/etc/php5/apache2'
 
+node.default['locale']['lang'] = 'de_DE.utf8'
+
 include_recipe 'apt'
 include_recipe 'vim'
+include_recipe 'locale'
 include_recipe 'apache2'
 include_recipe 'apache2::mod_php5'
 include_recipe 'php'
