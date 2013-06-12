@@ -47,6 +47,16 @@ Add domain `typo3-workspace-test-environment.dev` with defined IP address (Defau
 
 ## TYPO3 Installation
 
+### TYPO3 sources
+
+The TYPO3 source have to be put into the htdocs folder. Using a symlink on the host machine doesn't work so there are
+two ways to achieve this:
+
+* clone the TYPO3 core as a submodule
+	git submodule add -- git://git.typo3.org/Packages/TYPO3.CMS.git htdocs/typo3_src
+* mount an existing clone via `Vagrantfile` and symlink the clone from htdocs
+The symlink has to be relative to the guest file system!
+
 ### Snapshot script
 
 There's a small shell script `snapshot.sh` used to dump and reinstall the data (DB + files) of the TYPO3 installation.
