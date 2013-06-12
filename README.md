@@ -57,7 +57,7 @@ It's primary use is to reset the installation for every test run.
  Without parameter the script creates a new snapshot in directory `config/data/` with a timestamp as part of the
  filename. To restore a distinct snapshot just add the timestamp part of the snapshot's filename as parameter:
 
-	./snapshot.sh 20130424-1626
+	./snapshot.sh 20130612-1117
 
 ### Backend user
 
