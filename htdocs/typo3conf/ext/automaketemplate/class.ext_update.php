@@ -50,7 +50,8 @@ class ext_update {
 		$result = FALSE;
 		$selectFields = '*';
 		$fromTable = 'sys_template';
-		$whereClause = 'config LIKE \'%ereg_replace%\'' . t3lib_BEfunc::BEenableFields('sys_template') . t3lib_BEfunc::deleteClause('sys_template');
+		$whereClause = 'config LIKE \'%ereg_replace%\'' . t3lib_BEfunc::BEenableFields('sys_template') .
+			t3lib_BEfunc::deleteClause('sys_template');
 		$res = $GLOBALS['TYPO3_DB']->exec_SELECTquery($selectFields, $fromTable, $whereClause);
 		if ($GLOBALS['TYPO3_DB']->sql_num_rows($res) > 0) {
 			$result = TRUE;

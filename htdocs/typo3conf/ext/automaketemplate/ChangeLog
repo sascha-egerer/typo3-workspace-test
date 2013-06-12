@@ -1,4 +1,11 @@
-11-02-13 Jigal van Hemert | alterNET Internet BV <support@alternet.nl>
+04-05-2013 Jigal van Hemert | alterNET Internet BV <support@alternet.nl>
+
+	* Compatibility with 6.2
+	* Minimum TYPO3 version set to 4.3 (this is the first version to support autoloading)
+	* Further CGL changes
+	* ereg_replace support removed
+
+11-02-2013 Jigal van Hemert | alterNET Internet BV <support@alternet.nl>
 
 	* CGL applied
 	* refactoring of variable names

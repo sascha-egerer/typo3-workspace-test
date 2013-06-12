@@ -3,7 +3,7 @@
 /***************************************************************
  * Extension Manager/Repository config file for ext "automaketemplate".
  *
- * Auto generated 22-04-2013 14:55
+ * Auto generated 11-06-2013 14:01
  *
  * Manual updates:
  * Only the data in the array - everything else is removed by next
@@ -15,7 +15,7 @@ $EM_CONF[$_EXTKEY] = array (
 	'description' => 'Reads an HTML file and all sections which has a certain class or id value set are wrapped in corresponding template subparts. Also relative paths to images, stylesheets etc. are corrected.',
 	'category' => 'plugin',
 	'shy' => 0,
-	'version' => '0.1.3',
+	'version' => '0.2.0',
 	'dependencies' => '',
 	'conflicts' => '',
 	'priority' => '',
@@ -36,6 +36,8 @@ $EM_CONF[$_EXTKEY] = array (
 	array (
 		'depends' => 
 		array (
+			'cms' => '',
+			'typo3' => '4.3.0-6.2.99',
 		),
 		'conflicts' => '',
 		'suggests' => 
