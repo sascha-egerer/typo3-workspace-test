@@ -44,6 +44,14 @@ Maybe use another IP address.
 
 Add domain `typo3-workspace-test-environment.dev` with defined IP address (Default `192.168.156.40`) to your host file.
 
+### Import SSH key
+
+Download and install the private SSH key from Vagrant's Github
+repository so you can `ssh` to your VM.
+
+  curl -s https://raw.github.com/mitchellh/vagrant/master/keys/vagrant -o ~/.ssh/vagrant
+  chmod 600 ~/.ssh/vagrant
+
 
 ## TYPO3 Installation
 
