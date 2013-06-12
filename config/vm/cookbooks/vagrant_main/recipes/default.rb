@@ -38,14 +38,21 @@ mysql_database "Create database 'typo3-workspace-test-environment'" do
   action :create
 end
 
+project_domain = 'typo3-workspace-test-environment.dev'
 web_app 'project' do
   template 'web_app.conf.erb'
   docroot '/var/www/workspace_test_environment/htdocs'
   allow_override 'All'
   directory_index 'index.php index.html'
-  server_name 'typo3-workspace-test-environment.dev'
+  server_name project_domain
   server_aliases []
   notifies :reload, resources(:service => 'apache2'), :delayed
 end
 
+execute 'Add project domain to hosts file' do
+  command 'echo "\n127.0.0.1 ' + project_domain + '" >> /etc/hosts'
+  not_if "grep -E ' #{project_domain}$' /etc/hosts"
+end
+
 package "graphicsmagick"
+
