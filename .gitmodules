@@ -7,3 +7,6 @@
 [submodule "config/vm/cookbooks/vim"]
 	path = config/vm/cookbooks/vim
 	url = https://github.com/opscode-cookbooks/vim.git
+[submodule "config/vm/cookbooks/php"]
+	path = config/vm/cookbooks/php
+	url = https://github.com/opscode-cookbooks/php.git
