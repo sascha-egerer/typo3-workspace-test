@@ -2,6 +2,13 @@ node.override['mysql']['server_root_password'] = 'iloverandompasswordsbutthiswil
 node.override['mysql']['server_repl_password'] = 'iloverandompasswordsbutthiswilldo'
 node.override['mysql']['server_debian_password'] = 'iloverandompasswordsbutthiswilldo'
 node.override['mysql']['bind_address'] = '127.0.0.1'
+
+node.override['apache']['prefork']['startservers'] = 2
+node.override['apache']['prefork']['minspareservers'] = 2
+node.override['apache']['prefork']['maxspareservers'] = 6
+node.override['apache']['prefork']['serverlimit'] = 12
+node.override['apache']['prefork']['maxrequestsperchild'] = 200
+
 node.override['php']['conf_dir'] = '/etc/php5/apache2'
 
 node.default['locale']['lang'] = 'de_DE.utf8'
