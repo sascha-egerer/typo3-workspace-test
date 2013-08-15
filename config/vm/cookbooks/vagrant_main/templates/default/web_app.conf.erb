@@ -14,8 +14,10 @@
     # E_ALL & ~E_NOTICE & ~E_DEPRECATED = 22519
     php_admin_value error_reporting 22519
     php_admin_flag log_errors On
-    php_admin_flag display_errors On
-    php_admin_flag html_errors On
+    php_admin_flag display_errors Off
+    php_admin_flag html_errors Off
+    php_admin_value error_log "<%= node['apache']['log_dir'] %>/<%= @params[:name] %>-php.log"
+    php_admin_value memory_limit 256M
 
     # PHP upload settings
     php_admin_value upload_max_filesize 8M

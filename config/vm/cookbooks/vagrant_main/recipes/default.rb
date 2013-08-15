@@ -2,10 +2,12 @@ node.override['mysql']['server_root_password'] = 'iloverandompasswordsbutthiswil
 node.override['mysql']['server_repl_password'] = 'iloverandompasswordsbutthiswilldo'
 node.override['mysql']['server_debian_password'] = 'iloverandompasswordsbutthiswilldo'
 node.override['mysql']['bind_address'] = '127.0.0.1'
+node.default['mysql']['tunable']['innodb_buffer_pool_size'] = "32M"
+node.default['mysql']['tunable']['max_binlog_size']      = "20M"
 
 node.override['apache']['prefork']['startservers'] = 2
-node.override['apache']['prefork']['minspareservers'] = 2
-node.override['apache']['prefork']['maxspareservers'] = 6
+node.override['apache']['prefork']['minspareservers'] = 4
+node.override['apache']['prefork']['maxspareservers'] = 8
 node.override['apache']['prefork']['serverlimit'] = 12
 node.override['apache']['prefork']['maxrequestsperchild'] = 200
 
