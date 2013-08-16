@@ -65,3 +65,4 @@ end
 
 package "graphicsmagick"
 
+package "php5-xdebug"

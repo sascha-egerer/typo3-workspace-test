@@ -23,6 +23,11 @@
     php_admin_value upload_max_filesize 8M
     php_admin_value post_max_size 8M
 
+    # Use xdebug for remote debugging
+    php_admin_value xdebug.remote_enable 1
+    php_admin_value xdebug.remote_connect_back 1
+    php_admin_value xdebug.max_nesting_level 200
+
   </Directory>
 
   <Directory />
