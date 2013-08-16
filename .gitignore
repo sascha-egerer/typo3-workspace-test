@@ -1,4 +1,5 @@
 .vagrant
+htdocs/fileadmin/_processed_/*
 htdocs/typo3_src
 htdocs/typo3temp/*
 htdocs/typo3conf/deprecation_*
