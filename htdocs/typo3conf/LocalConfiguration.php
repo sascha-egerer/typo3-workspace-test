@@ -3,8 +3,8 @@ return array(
 	'BE' => array(
 		'disable_exec_function' => 0,
 		'explicitADmode' => 'explicitAllow',
-		'fileCreateMask' => '0666',
-		'folderCreateMask' => '2777',
+		'fileCreateMask' => '0660',
+		'folderCreateMask' => '0770',
 		'installToolPassword' => '5f4dcc3b5aa765d61d8327deb882cf99',
 		'lockHashKeyWords' => '',
 		'loginSecurityLevel' => 'rsa',
