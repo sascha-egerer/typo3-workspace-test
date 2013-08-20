@@ -20,11 +20,16 @@ return array(
 	'EXT' => array(
 		'extConf' => array(
 			'automaketemplate' => 'a:0:{}',
+			'documentation' => 'a:0:{}',
 			'extension_builder' => 'a:3:{s:15:"enableRoundtrip";s:0:"";s:15:"backupExtension";s:1:"1";s:9:"backupDir";s:35:"uploads/tx_extensionbuilder/backups";}',
+			'feedit' => 'a:0:{}',
 			'indexed_search' => 'a:18:{s:8:"pdftools";s:9:"/usr/bin/";s:8:"pdf_mode";s:2:"20";s:5:"unzip";s:9:"/usr/bin/";s:6:"catdoc";s:9:"/usr/bin/";s:6:"xlhtml";s:9:"/usr/bin/";s:7:"ppthtml";s:9:"/usr/bin/";s:5:"unrtf";s:9:"/usr/bin/";s:9:"debugMode";s:1:"0";s:18:"fullTextDataLength";s:1:"0";s:23:"disableFrontendIndexing";s:1:"0";s:21:"enableMetaphoneSearch";s:1:"1";s:6:"minAge";s:2:"24";s:6:"maxAge";s:1:"0";s:16:"maxExternalFiles";s:1:"5";s:26:"useCrawlerForExternalFiles";s:1:"0";s:11:"flagBitMask";s:3:"192";s:16:"ignoreExtensions";s:0:"";s:17:"indexExternalURLs";s:1:"0";}',
+			'info' => 'a:0:{}',
 			'jquerycolorbox' => 'a:0:{}',
 			'linkvalidator' => 'a:0:{}',
+			'opendocs' => 'a:0:{}',
 			'realurl' => 'a:5:{s:10:"configFile";s:26:"typo3conf/realurl_conf.php";s:14:"enableAutoConf";s:1:"1";s:14:"autoConfFormat";s:1:"1";s:12:"enableDevLog";s:1:"0";s:19:"enableChashUrlDebug";s:1:"0";}',
+			'recycler' => 'a:0:{}',
 			'rtehtmlarea' => 'a:13:{s:21:"noSpellCheckLanguages";s:23:"ja,km,ko,lo,th,zh,b5,gb";s:15:"AspellDirectory";s:15:"/usr/bin/aspell";s:17:"defaultDictionary";s:2:"en";s:14:"dictionaryList";s:2:"en";s:20:"defaultConfiguration";s:105:"Typical (Most commonly used features are enabled. Select this option if you are unsure which one to use.)";s:12:"enableImages";s:1:"1";s:20:"enableInlineElements";s:1:"0";s:19:"allowStyleAttribute";s:1:"1";s:24:"enableAccessibilityIcons";s:1:"0";s:16:"enableDAMBrowser";s:1:"0";s:16:"forceCommandMode";s:1:"0";s:15:"enableDebugMode";s:1:"0";s:23:"enableCompressedScripts";s:1:"1";}',
 			'saltedpasswords' => 'a:2:{s:3:"FE.";a:2:{s:7:"enabled";s:1:"1";s:21:"saltedPWHashingMethod";s:28:"tx_saltedpasswords_salts_md5";}s:3:"BE.";a:2:{s:7:"enabled";s:1:"1";s:21:"saltedPWHashingMethod";s:28:"tx_saltedpasswords_salts_md5";}}',
 			'scheduler' => 'a:4:{s:11:"maxLifetime";s:4:"1440";s:11:"enableBELog";s:1:"1";s:15:"showSampleTasks";s:1:"1";s:11:"useAtdaemon";s:1:"0";}',
@@ -80,6 +85,11 @@ return array(
 			'extension_builder',
 			'workspace_test',
 			'automaketemplate',
+			'info',
+			'feedit',
+			'opendocs',
+			'recycler',
+			'documentation',
 		),
 	),
 	'EXTCONF' => array(
@@ -102,8 +112,15 @@ return array(
 		'im_version_5' => 'gm',
 		'jpg_quality' => '80',
 	),
+	'INSTALL' => array(
+		'wizardDone' => array(
+			'TYPO3\CMS\Install\Updates\FilemountUpdateWizard' => 1,
+			'TYPO3\CMS\Install\Updates\InstallSysExtsUpdate' => '["info","perm","func","filelist","about","cshmanual","feedit","opendocs","recycler","t3editor","reports","scheduler","simulatestatic","documentation"]',
+			'TYPO3\CMS\Install\Updates\TceformsUpdateWizard' => 'tt_content:image,pages:media,pages_language_overlay:media',
+		),
+	),
 	'SYS' => array(
-		'compat_version' => '6.1',
+		'compat_version' => '6.2',
 		'debugExceptionHandler' => '',
 		'displayErrors' => 1,
 		'encryptionKey' => '934661a4f28ad1f055e0d1c5c282cead50171a604c030537365d5480a40f368e64fb1189f1e0bd35df2ffa3fa503849b',
