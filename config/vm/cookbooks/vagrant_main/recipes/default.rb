@@ -15,6 +15,8 @@ node.override['php']['conf_dir'] = '/etc/php5/apache2'
 
 node.default['locale']['lang'] = 'de_DE.utf8'
 
+node.default['redisio']['version'] = '2.6.10'
+
 include_recipe 'apt'
 include_recipe 'vim'
 include_recipe 'locale'
@@ -28,6 +30,8 @@ include_recipe 'mysql'
 include_recipe 'mysql::server'
 include_recipe 'database'
 include_recipe 'database::mysql'
+include_recipe 'redisio::install'
+include_recipe 'redisio::enable'
 
 execute 'disable-default-site' do
   command 'sudo a2dissite default'
