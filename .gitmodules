@@ -10,3 +10,10 @@
 [submodule "config/vm/cookbooks/php"]
 	path = config/vm/cookbooks/php
 	url = https://github.com/opscode-cookbooks/php.git
+[submodule "config/vm/cookbooks/redisio"]
+	path = config/vm/cookbooks/redisio
+	url = https://github.com/brianbianco/redisio.git
+	branch = master
+[submodule "config/vm/cookbooks/ulimit"]
+	path = config/vm/cookbooks/ulimit
+	url = https://github.com/bmhatfield/chef-ulimit.git
