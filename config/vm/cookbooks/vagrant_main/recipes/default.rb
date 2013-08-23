@@ -33,6 +33,9 @@ include_recipe 'database::mysql'
 include_recipe 'redisio::install'
 include_recipe 'redisio::enable'
 
+package "git"
+include_recipe 'php::module_redis'
+
 execute 'disable-default-site' do
   command 'sudo a2dissite default'
   notifies :reload, resources(:service => 'apache2'), :delayed
