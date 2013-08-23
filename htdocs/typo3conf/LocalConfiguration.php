@@ -20,6 +20,7 @@ return array(
 	'EXT' => array(
 		'extConf' => array(
 			'automaketemplate' => 'a:0:{}',
+			'dkd_redis_sessions' => 'a:4:{s:15:"frontend_server";s:14:"localhost:6379";s:11:"frontend_db";s:1:"2";s:14:"backend_server";s:14:"localhost:6379";s:10:"backend_db";s:1:"3";}',
 			'documentation' => 'a:0:{}',
 			'extension_builder' => 'a:3:{s:15:"enableRoundtrip";s:0:"";s:15:"backupExtension";s:1:"1";s:9:"backupDir";s:35:"uploads/tx_extensionbuilder/backups";}',
 			'feedit' => 'a:0:{}',
@@ -90,6 +91,7 @@ return array(
 			'opendocs',
 			'recycler',
 			'documentation',
+			'dkd_redis_sessions',
 		),
 	),
 	'EXTCONF' => array(

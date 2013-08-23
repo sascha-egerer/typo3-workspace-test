@@ -1,0 +1,12 @@
+# cat=basic/frontend; type=string; label=Frontend session server:Redis server for frontend session storage. Format <hostname>:<port>
+frontend_server=localhost:6379
+
+# cat=basic/frontend; type=string; label=Frontend session DB:Redis database for frontend session storage
+frontend_db=
+
+# cat=basic/backend; type=string; label=Backend session server:Redis server for backend session storage. Format <hostname>:<port>
+backend_server=localhost:6379
+
+# cat=basic/backend; type=string; label=Backend session DB:Redis database for backend session storage
+backend_db=
+
