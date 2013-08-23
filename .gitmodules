@@ -9,7 +9,7 @@
 	url = https://github.com/opscode-cookbooks/vim.git
 [submodule "config/vm/cookbooks/php"]
 	path = config/vm/cookbooks/php
-	url = https://github.com/opscode-cookbooks/php.git
+	url = https://github.com/thorstenk/php.git
 [submodule "config/vm/cookbooks/redisio"]
 	path = config/vm/cookbooks/redisio
 	url = https://github.com/brianbianco/redisio.git
