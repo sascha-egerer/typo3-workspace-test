@@ -1,16 +1,32 @@
 <?php
-/**
- * Created by IntelliJ IDEA.
- * User: dkd-kahler
- * Date: 22.08.13
- * Time: 16:05
- * To change this template use File | Settings | File Templates.
- */
+/***************************************************************
+ *  Copyright notice
+ *
+ *  (c) 2013 Thorsten Kahler <thorsten.kahler@typo3.org>
+ *  All rights reserved
+ *
+ *  This script is part of the TYPO3 project. The TYPO3 project is
+ *  free software; you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation; either version 2 of the License, or
+ *  (at your option) any later version.
+ *
+ *  The GNU General Public License can be found at
+ *  http://www.gnu.org/copyleft/gpl.html.
+ *
+ *  This script is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *
+ *  This copyright notice MUST APPEAR in all copies of the script!
+ ***************************************************************/
 
 namespace TYPO3\CMS\DkdRedisSessions;
-use TYPO3\CMS\Core\Cache\Backend\RedisBackend;
+
 use TYPO3\CMS\Core\Session;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use \TYPO3\CMS\Core\Cache\Backend\RedisBackend;
 
 /**
  * Implements Redis as TYPO3\CMS\Core\Session\StorageInterface
@@ -19,7 +35,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 class RedisSessionStorage extends \TYPO3\CMS\Core\Service\AbstractService implements Session\StorageInterface {
 
 	/**
-	 * @var \TYPO3\CMS\Core\Cache\Backend\RedisBackend $backend the Redis CacheBackend
+	 * @var RedisBackend $backend the Redis CacheBackend
 	 */
 	protected $backend;
 	/**
@@ -65,7 +81,18 @@ class RedisSessionStorage extends \TYPO3\CMS\Core\Service\AbstractService implem
 	 * @return Session\Data session data object
 	 */
 	public function get($identifier) {
-		return $this->backend->get($identifier);
+		$session = NULL;
+		$rawSession = $this->backend->get($identifier);
+		if ($rawSession) {
+			$data = unserialize($rawSession);
+			if ($data['identifier'] === $identifier) {
+				$session = GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\Session\\Data');
+				$session->setContent($data['content']);
+				$session->setTimeout($data['timeout']);
+				$session->setIdentifier($identifier);
+			}
+		}
+		return $session;
 	}
 
 	/**
@@ -75,7 +102,23 @@ class RedisSessionStorage extends \TYPO3\CMS\Core\Service\AbstractService implem
 	 * @return boolean TRUE on success
 	 */
 	public function put(Session\Data $sessionData) {
-		// TODO: Implement put() method.
+		try {
+			$data = array(
+				'identifier' => $sessionData->getIdentifier(),
+				'content' => $sessionData->getContent(),
+				'timeout' => $sessionData->getTimeout(),
+			);
+			$this->backend->set($sessionData->getIdentifier(), serialize($data), array(), $sessionData->getTimeout());
+		}
+		catch (\InvalidArgumentException $e) {
+			GeneralUtility::sysLog($e->getMessage(), 'dkd_redis_sessions', GeneralUtility::SYSLOG_SEVERITY_WARNING);
+			return FALSE;
+		}
+		catch (\TYPO3\CMS\Core\Cache\Exception\InvalidDataException $e) {
+			GeneralUtility::sysLog($e->getMessage(), 'dkd_redis_sessions', GeneralUtility::SYSLOG_SEVERITY_ERROR);
+			return FALSE;
+		}
+		return TRUE;
 	}
 
 	/**
@@ -85,7 +128,14 @@ class RedisSessionStorage extends \TYPO3\CMS\Core\Service\AbstractService implem
 	 * @return boolean TRUE on success
 	 */
 	public function delete($identifier) {
-		// TODO: Implement delete() method.
+		$deleted = FALSE;
+		try {
+			$deleted = $this->backend->remove($identifier);
+		}
+		catch (\InvalidArgumentException $e) {
+			GeneralUtility::sysLog('Invalid session identifier: '  . $e->getMessage(), 'dkd_redis_sessions', GeneralUtility::SYSLOG_SEVERITY_WARNING);
+		}
+		return $deleted;
 	}
 
 	/**
@@ -94,7 +144,7 @@ class RedisSessionStorage extends \TYPO3\CMS\Core\Service\AbstractService implem
 	 * @return void
 	 */
 	public function collectGarbage() {
-		// TODO: Implement collectGarbage() method.
+		$this->backend->collectGarbage();
 	}
 
 }
