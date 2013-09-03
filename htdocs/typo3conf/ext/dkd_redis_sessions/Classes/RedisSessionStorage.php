@@ -29,7 +29,7 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 use \TYPO3\CMS\Core\Cache\Backend\RedisBackend;
 
 /**
- * Implements Redis as TYPO3\CMS\Core\Session\StorageInterface
+ * Implements Redis as \TYPO3\CMS\Core\Session\StorageInterface
  * @package TYPO3\CMS\DkdRedisSessions
  */
 class RedisSessionStorage extends \TYPO3\CMS\Core\Service\AbstractService implements Session\StorageInterface {
@@ -38,6 +38,11 @@ class RedisSessionStorage extends \TYPO3\CMS\Core\Service\AbstractService implem
 	 * @var RedisBackend $backend the Redis CacheBackend
 	 */
 	protected $backend;
+
+	/**
+	 * @var string $subtype the service subtype
+	 */
+	protected $subtype;
 	/**
 	 * Connect to Redis DB
 	 * @return bool|void
@@ -51,24 +56,27 @@ class RedisSessionStorage extends \TYPO3\CMS\Core\Service\AbstractService implem
 			default:
 				return FALSE;
 		}
-		$extConf = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['dkd_redis_sessions']);
-		list($hostname, $port) = GeneralUtility::trimExplode(':', $extConf[$subtype . '_server']);
-		$this->backend = GeneralUtility::makeInstance(
-			'TYPO3\\CMS\\Core\\Cache\\Backend\\RedisBackend',
-			'',
-			array(
-				'hostname' => $hostname,
-				'port' => $port,
-				'database' => intval($extConf[$subtype . '_db'])
-			)
-		);
-		if ($this->backend instanceof RedisBackend) {
-			try {
-				$this->backend->initializeObject();
-			}
-			catch(\TYPO3\CMS\Core\Cache\Exception $e) {
-				GeneralUtility::sysLog($e->getMessage(), 'dkd_redis_sessions', GeneralUtility::SYSLOG_SEVERITY_WARNING);
-				return FALSE;
+
+		if ($this->subtype != $subtype) {
+			$extConf = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['dkd_redis_sessions']);
+			list($hostname, $port) = GeneralUtility::trimExplode(':', $extConf[$subtype . '_server']);
+			$this->backend = GeneralUtility::makeInstance(
+				'TYPO3\\CMS\\Core\\Cache\\Backend\\RedisBackend',
+				'',
+				array(
+					'hostname' => $hostname,
+					'port' => $port,
+					'database' => intval($extConf[$subtype . '_db'])
+				)
+			);
+			if ($this->backend instanceof RedisBackend) {
+				try {
+					$this->backend->initializeObject();
+				}
+				catch(\TYPO3\CMS\Core\Cache\Exception $e) {
+					GeneralUtility::sysLog($e->getMessage(), 'dkd_redis_sessions', GeneralUtility::SYSLOG_SEVERITY_WARNING);
+					return FALSE;
+				}
 			}
 		}
 		return TRUE;
