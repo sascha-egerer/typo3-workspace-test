@@ -116,7 +116,7 @@ class RedisSessionStorage extends \TYPO3\CMS\Core\Service\AbstractService implem
 				'content' => $sessionData->getContent(),
 				'timeout' => $sessionData->getTimeout(),
 			);
-			$this->backend->set($sessionData->getIdentifier(), serialize($data), array(), $sessionData->getTimeout());
+			$this->backend->set($sessionData->getIdentifier(), serialize($data), array(), $sessionData->getTimeout() - time());
 		}
 		catch (\InvalidArgumentException $e) {
 			GeneralUtility::sysLog($e->getMessage(), 'dkd_redis_sessions', GeneralUtility::SYSLOG_SEVERITY_WARNING);
