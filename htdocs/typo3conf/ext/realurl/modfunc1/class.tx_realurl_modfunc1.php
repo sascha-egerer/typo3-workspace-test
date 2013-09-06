@@ -64,11 +64,8 @@
  *
  */
 
-require_once(PATH_t3lib.'class.t3lib_pagetree.php');
-require_once(PATH_t3lib.'class.t3lib_extobjbase.php');
 
 $GLOBALS['LANG']->includeLLfile('EXT:realurl/modfunc1/locallang.xml');
-require_once(t3lib_extMgm::extPath('realurl', 'modfunc1/class.tx_realurl_pagebrowser.php'));
 
 /**
  * Speaking Url management extension
@@ -1324,7 +1321,6 @@ class tx_realurl_modfunc1 extends t3lib_extobjbase {
 		global $TYPO3_CONF_VARS;
 
 			// Include array browser:
-		require_once(PATH_t3lib . 'class.t3lib_arraybrowser.php');
 
 			// Initialize array browser:
 		$arrayBrowser = t3lib_div::makeInstance('t3lib_arrayBrowser');
