@@ -34,6 +34,12 @@ execute 'disable-default-site' do
   notifies :reload, resources(:service => 'apache2'), :delayed
 end
 
+group node['apache']['group'] do
+  members 'vagrant'
+  append true
+  action :modify
+end
+
 directory '/var/www/workspace_test_environment/htdocs' do
   owner 'vagrant'
   group 'www-data'
