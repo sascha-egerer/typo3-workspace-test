@@ -17,3 +17,6 @@
 [submodule "config/vm/cookbooks/ulimit"]
 	path = config/vm/cookbooks/ulimit
 	url = https://github.com/bmhatfield/chef-ulimit.git
+[submodule "htdocs/typo3conf/ext/phpunit"]
+	path = htdocs/typo3conf/ext/phpunit
+	url = git://git.typo3.org/TYPO3v4/Extensions/phpunit.git
