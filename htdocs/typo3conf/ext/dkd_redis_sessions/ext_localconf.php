@@ -7,7 +7,7 @@ if (!defined('TYPO3_MODE')) {
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addService(
 	$_EXTKEY,
 	'sessionStorage',
-	'TYPO3\\CMS\\DkdRedisSessions\\FrontendSessionStorage',
+	'TYPO3\\CMS\\DkdRedisSessions\\FrontendStorage',
 	array(
 		'title' => 'Session Storage: Redis',
 		'description' => 'Stores user sessions in Redis (http://redis.io)',

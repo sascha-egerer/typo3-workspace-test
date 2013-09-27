@@ -27,6 +27,7 @@ namespace TYPO3\CMS\DkdRedisSessions;
 use TYPO3\CMS\Core\Session;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use \TYPO3\CMS\Core\Cache\Backend\RedisBackend;
+use TYPO3\CMS\Core\Utility\MathUtility;
 
 /**
  * Implements Redis as \TYPO3\CMS\Core\Session\StorageInterface
@@ -50,25 +51,57 @@ abstract class RedisSessionStorage extends \TYPO3\CMS\Core\Service\AbstractServi
 	 * @return bool|void
 	 */
 	public function init() {
-		$extConf = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['dkd_redis_sessions']);
-		list($hostname, $port) = GeneralUtility::trimExplode(':', $extConf[$this->subtype . '_server']);
-		$this->backend = GeneralUtility::makeInstance(
-			'TYPO3\\CMS\\Core\\Cache\\Backend\\RedisBackend',
-			'',
-			array(
+		try {
+			if (
+				!isset($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['dkd_redis_sessions'])
+				|| ! is_string($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['dkd_redis_sessions'])
+			) {
+				throw new \TYPO3\CMS\Core\Cache\Exception('Missing extension configuration for "dkd_redis_sessions"');
+			}
+			$extConf = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['dkd_redis_sessions']);
+
+			if (!isset($extConf[$this->subtype . '_server'])
+				|| ! is_string($extConf[$this->subtype . '_server'])
+			) {
+				throw new \TYPO3\CMS\Core\Cache\Exception('Wrong extension configuration for "' . $this->subtype . '_server' . '".');
+			}
+			list($hostname, $port) = GeneralUtility::trimExplode(':', $extConf[$this->subtype . '_server']);
+
+			if (!isset($extConf[$this->subtype . '_db'])) {
+				throw new \TYPO3\CMS\Core\Cache\Exception(
+					'Missing database configuration for subtype "' . $this->subtype . '".'
+				);
+			}
+			$database = intval($extConf[$this->subtype . '_db']);
+
+			if ($database < 1) {
+					// check valid database id and avoid conflicts with PhpUnit
+				throw new \TYPO3\CMS\Core\Cache\Exception(
+					'Wrong database "' . $extConf[$this->subtype . '_db'] . '" configured for subtype "'
+					. $this->subtype . '". Use integer > 1!'
+				);
+			}
+
+			$redisOptions = array(
 				'hostname' => $hostname,
-				'port' => $port,
-				'database' => intval($extConf[$this->subtype . '_db'])
-			)
-		);
-		if ($this->backend instanceof RedisBackend) {
-			try {
+				'database' => $database
+			);
+			if (MathUtility::canBeInterpretedAsInteger($port)) {
+				$redisOptions['port'] = $port;
+			}
+
+			$this->backend = GeneralUtility::makeInstance(
+				'TYPO3\\CMS\\Core\\Cache\\Backend\\RedisBackend',
+				'',
+				$redisOptions
+			);
+			if ($this->backend instanceof RedisBackend) {
 				$this->backend->initializeObject();
 			}
-			catch(\TYPO3\CMS\Core\Cache\Exception $e) {
-				GeneralUtility::sysLog($e->getMessage(), 'dkd_redis_sessions', GeneralUtility::SYSLOG_SEVERITY_WARNING);
-				return FALSE;
-			}
+		}
+		catch(\TYPO3\CMS\Core\Cache\Exception $e) {
+			GeneralUtility::sysLog($e->getMessage(), 'dkd_redis_sessions', GeneralUtility::SYSLOG_SEVERITY_WARNING);
+			return FALSE;
 		}
 		return TRUE;
 	}
