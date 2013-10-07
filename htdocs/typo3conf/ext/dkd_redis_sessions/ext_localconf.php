@@ -37,3 +37,11 @@ if (!defined('TYPO3_MODE')) {
 		'className' => 'TYPO3\\CMS\\DkdRedisSessions\\BackendStorage'
 	)
 );
+
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPItoST43(
+	'dkd_redis_sessions',
+	'Classes/Plugin/Frontendtest.php',
+	'_frontendtest'
+);
+
+class_alias('TYPO3\\CMS\\DkdRedisSessions\\Plugin\\Frontendtest', 'tx_dkdredissessions_frontendtest');
