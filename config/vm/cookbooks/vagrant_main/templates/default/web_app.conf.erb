@@ -27,6 +27,10 @@
     php_admin_value xdebug.remote_enable 1
     php_admin_value xdebug.remote_connect_back 1
     php_admin_value xdebug.max_nesting_level 250
+# uncomment to prevent debugging BE login status checks
+#<Files ajax.php>
+#    php_admin_value xdebug.remote_enable 0
+#</Files>
 
     php_admin_value mysql.connect_timeout 240
 
