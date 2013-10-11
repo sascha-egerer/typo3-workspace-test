@@ -57,7 +57,7 @@ Vagrant::Config.run do |config|
     #}
   end
   config.vm.customize ['modifyvm', :id,
-                       '--memory', 768,
+                       '--memory', 1024,
                        '--cpus', 1,
                        '--name', 'typo3-workspace-test-environment',
                        '--natdnsproxy1', 'off',

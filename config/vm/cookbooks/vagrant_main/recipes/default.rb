@@ -46,6 +46,11 @@ group node['apache']['group'] do
   append true
   action :modify
 end
+group "vagrant" do
+  members node['apache']['user']
+  append true
+  action :modify
+end
 
 directory '/var/www/workspace_test_environment/htdocs' do
   owner 'vagrant'
@@ -61,7 +66,8 @@ mysql_database "Create database 'typo3-workspace-test-environment'" do
 end
 
 project_domain = 'typo3-workspace-test-environment.dev'
-web_app 'project' do
+project_name = 'project'
+web_app project_name do
   template 'web_app.conf.erb'
   docroot '/var/www/workspace_test_environment/htdocs'
   allow_override 'All'
@@ -69,6 +75,18 @@ web_app 'project' do
   server_name project_domain
   server_aliases []
   notifies :reload, resources(:service => 'apache2'), :delayed
+end
+# enable logging of PHP errors
+if platform_family?("debian")
+  # this is missing in apache2::default
+  directory node['apache']['log_dir'] do
+    mode 00755
+  end
+end
+file node['apache']['log_dir'] + '/' + project_name + '-php.log' do
+  owner 'www-data'
+  group 'www-data'
+  mode '0644'
 end
 
 execute 'Add project domain to hosts file' do
