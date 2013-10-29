@@ -1,7 +1,7 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-Vagrant::Config.run do |config|
+Vagrant::configure("2") do |config|
   # All Vagrant configuration is done here. The most common configuration
   # options are documented and commented below. For a complete reference,
   # please see the online documentation at vagrantup.com.
@@ -20,7 +20,7 @@ Vagrant::Config.run do |config|
   # via the IP. Host-only networks can talk to the host machine as well as
   # any other machines on the same network, but cannot be accessed (through this
   # network interface) by any external networks.
-  config.vm.network :hostonly, '192.168.156.40'
+  config.vm.network 'private_network', ip: '192.168.50.60'
 
   # Assign this VM to a bridged network, allowing you to connect directly to a
   # network using the host's network device. This makes the VM appear as another
@@ -34,7 +34,7 @@ Vagrant::Config.run do |config|
   # Share an additional folder to the guest VM. The first argument is
   # an identifier, the second is the path on the guest to mount the
   # folder, and the third is the path on the host to the actual folder.
-  config.vm.share_folder 'htdocs-folder', '/var/www/workspace_test_environment/htdocs', 'htdocs', :group => 'www-data', :extra => 'dmode=770,fmode=660'
+  config.vm.share_folder 'htdocs', '/var/www/workspace_test_environment/htdocs', :extra => 'dmode=777,fmode=666', :nfs => true
 
   config.vm.provision :chef_solo do |chef|
     # We're going to download our cookbooks from the web
@@ -56,11 +56,17 @@ Vagrant::Config.run do |config|
     #  }
     #}
   end
-  config.vm.customize ['modifyvm', :id,
-                       '--memory', 1024,
-                       '--cpus', 1,
-                       '--name', 'typo3-workspace-test-environment',
-                       '--natdnsproxy1', 'off',
-                       '--natdnshostresolver1', 'on'
-                      ]
+
+  config.vm.provider "virtualbox" do |v|
+
+    v.customize [
+      'modifyvm', :id,
+       '--memory', 1024,
+       '--cpus', 1,
+       '--name', 'typo3-workspace-test-environment',
+       '--natdnsproxy1', 'off',
+       '--natdnshostresolver1', 'on'
+      ]
+  end
+
 end

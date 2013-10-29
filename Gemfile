@@ -1,4 +1,4 @@
 source 'http://rubygems.org'
 
-gem 'vagrant', '~> 1.0.7'
+gem 'vagrant-wrapper', '~> 1.2.1'
 

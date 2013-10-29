@@ -6,6 +6,5 @@ if [ -f Gemfile ] && ! command -v bundle >/dev/null; then
   gem install bundler
 fi
 
-alias vagrant="bundle exec vagrant"
 alias irb="bundle exec irb"
 alias berks="bundle exec berks"
