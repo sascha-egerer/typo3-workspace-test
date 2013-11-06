@@ -44,6 +44,12 @@ return array (
       'packagePath' => 'typo3/sysext/adodb/',
       'classesPath' => 'Classes/',
     ),
+    'automaketemplate' => 
+    array (
+      'state' => 'active',
+      'packagePath' => 'typo3conf/ext/automaketemplate/',
+      'classesPath' => 'Classes/',
+    ),
     'backend' => 
     array (
       'manifestPath' => '',
@@ -66,6 +72,14 @@ return array (
       'composerName' => 'typo3/cms/beuser',
       'state' => 'active',
       'packagePath' => 'typo3/sysext/beuser/',
+      'classesPath' => 'Classes/',
+    ),
+    'cms' => 
+    array (
+      'manifestPath' => '',
+      'composerName' => 'typo3/cms/cms',
+      'state' => 'active',
+      'packagePath' => 'typo3/sysext/cms/',
       'classesPath' => 'Classes/',
     ),
     'context_help' => 
@@ -100,12 +114,32 @@ return array (
       'packagePath' => 'typo3/sysext/dbal/',
       'classesPath' => 'Classes/',
     ),
+    'dkd_redis_sessions' => 
+    array (
+      'state' => 'inactive',
+      'packagePath' => 'typo3conf/ext/dkd_redis_sessions/',
+      'classesPath' => 'Classes/',
+    ),
     'documentation' => 
     array (
       'manifestPath' => '',
       'composerName' => 'typo3/cms/documentation',
       'state' => 'active',
       'packagePath' => 'typo3/sysext/documentation/',
+      'classesPath' => 'Classes/',
+    ),
+    'extbase' => 
+    array (
+      'manifestPath' => '',
+      'composerName' => 'typo3/cms/extbase',
+      'state' => 'active',
+      'packagePath' => 'typo3/sysext/extbase/',
+      'classesPath' => 'Classes/',
+    ),
+    'extension_builder' => 
+    array (
+      'state' => 'active',
+      'packagePath' => 'typo3conf/ext/extension_builder/',
       'classesPath' => 'Classes/',
     ),
     'extensionmanager' => 
@@ -148,12 +182,12 @@ return array (
       'packagePath' => 'typo3/sysext/filelist/',
       'classesPath' => 'Classes/',
     ),
-    'filemetadata' => 
+    'fluid' => 
     array (
       'manifestPath' => '',
-      'composerName' => 'typo3/cms/filemetadata',
-      'state' => 'inactive',
-      'packagePath' => 'typo3/sysext/filemetadata/',
+      'composerName' => 'typo3/cms/fluid',
+      'state' => 'active',
+      'packagePath' => 'typo3/sysext/fluid/',
       'classesPath' => 'Classes/',
     ),
     'form' => 
@@ -162,14 +196,6 @@ return array (
       'composerName' => 'typo3/cms/form',
       'state' => 'active',
       'packagePath' => 'typo3/sysext/form/',
-      'classesPath' => 'Classes/',
-    ),
-    'cms' => 
-    array (
-      'manifestPath' => '',
-      'composerName' => 'typo3/cms/cms',
-      'state' => 'active',
-      'packagePath' => 'typo3/sysext/cms/',
       'classesPath' => 'Classes/',
     ),
     'frontend' => 
@@ -236,28 +262,24 @@ return array (
       'packagePath' => 'typo3/sysext/info_pagetsconfig/',
       'classesPath' => 'Classes/',
     ),
-    'extbase' => 
-    array (
-      'manifestPath' => '',
-      'composerName' => 'typo3/cms/extbase',
-      'state' => 'active',
-      'packagePath' => 'typo3/sysext/extbase/',
-      'classesPath' => 'Classes/',
-    ),
-    'fluid' => 
-    array (
-      'manifestPath' => '',
-      'composerName' => 'typo3/cms/fluid',
-      'state' => 'active',
-      'packagePath' => 'typo3/sysext/fluid/',
-      'classesPath' => 'Classes/',
-    ),
     'install' => 
     array (
       'manifestPath' => '',
       'composerName' => 'typo3/cms/install',
       'state' => 'active',
       'packagePath' => 'typo3/sysext/install/',
+      'classesPath' => 'Classes/',
+    ),
+    'introduction' => 
+    array (
+      'state' => 'active',
+      'packagePath' => 'typo3conf/ext/introduction/',
+      'classesPath' => 'Classes/',
+    ),
+    'jquerycolorbox' => 
+    array (
+      'state' => 'active',
+      'packagePath' => 'typo3conf/ext/jquerycolorbox/',
       'classesPath' => 'Classes/',
     ),
     'lang' => 
@@ -284,28 +306,18 @@ return array (
       'packagePath' => 'typo3/sysext/lowlevel/',
       'classesPath' => 'Classes/',
     ),
+    'news' => 
+    array (
+      'state' => 'inactive',
+      'packagePath' => 'typo3conf/ext/news/',
+      'classesPath' => 'Classes/',
+    ),
     'opendocs' => 
     array (
       'manifestPath' => '',
       'composerName' => 'typo3/cms/opendocs',
       'state' => 'active',
       'packagePath' => 'typo3/sysext/opendocs/',
-      'classesPath' => 'Classes/',
-    ),
-    'setup' => 
-    array (
-      'manifestPath' => '',
-      'composerName' => 'typo3/cms/setup',
-      'state' => 'active',
-      'packagePath' => 'typo3/sysext/setup/',
-      'classesPath' => 'Classes/',
-    ),
-    'sv' => 
-    array (
-      'manifestPath' => '',
-      'composerName' => 'typo3/cms/sv',
-      'state' => 'active',
-      'packagePath' => 'typo3/sysext/sv/',
       'classesPath' => 'Classes/',
     ),
     'openid' => 
@@ -322,6 +334,18 @@ return array (
       'composerName' => 'typo3/cms/perm',
       'state' => 'active',
       'packagePath' => 'typo3/sysext/perm/',
+      'classesPath' => 'Classes/',
+    ),
+    'phpunit' => 
+    array (
+      'state' => 'active',
+      'packagePath' => 'typo3conf/ext/phpunit/',
+      'classesPath' => 'Classes/',
+    ),
+    'realurl' => 
+    array (
+      'state' => 'active',
+      'packagePath' => 'typo3conf/ext/realurl/',
       'classesPath' => 'Classes/',
     ),
     'recordlist' => 
@@ -378,6 +402,22 @@ return array (
       'composerName' => 'typo3/cms/scheduler',
       'state' => 'active',
       'packagePath' => 'typo3/sysext/scheduler/',
+      'classesPath' => 'Classes/',
+    ),
+    'setup' => 
+    array (
+      'manifestPath' => '',
+      'composerName' => 'typo3/cms/setup',
+      'state' => 'active',
+      'packagePath' => 'typo3/sysext/setup/',
+      'classesPath' => 'Classes/',
+    ),
+    'sv' => 
+    array (
+      'manifestPath' => '',
+      'composerName' => 'typo3/cms/sv',
+      'state' => 'active',
+      'packagePath' => 'typo3/sysext/sv/',
       'classesPath' => 'Classes/',
     ),
     'sys_action' => 
@@ -460,60 +500,18 @@ return array (
       'packagePath' => 'typo3/sysext/wizard_sortpages/',
       'classesPath' => 'Classes/',
     ),
+    'workspace_test' => 
+    array (
+      'state' => 'active',
+      'packagePath' => 'typo3conf/ext/workspace_test/',
+      'classesPath' => 'Classes/',
+    ),
     'workspaces' => 
     array (
       'manifestPath' => '',
       'composerName' => 'typo3/cms/workspaces',
       'state' => 'active',
       'packagePath' => 'typo3/sysext/workspaces/',
-      'classesPath' => 'Classes/',
-    ),
-    'automaketemplate' => 
-    array (
-      'state' => 'active',
-      'packagePath' => 'typo3conf/ext/automaketemplate/',
-      'classesPath' => 'Classes/',
-    ),
-    'extension_builder' => 
-    array (
-      'state' => 'active',
-      'packagePath' => 'typo3conf/ext/extension_builder/',
-      'classesPath' => 'Classes/',
-    ),
-    'introduction' => 
-    array (
-      'state' => 'active',
-      'packagePath' => 'typo3conf/ext/introduction/',
-      'classesPath' => 'Classes/',
-    ),
-    'jquerycolorbox' => 
-    array (
-      'state' => 'active',
-      'packagePath' => 'typo3conf/ext/jquerycolorbox/',
-      'classesPath' => 'Classes/',
-    ),
-    'news' => 
-    array (
-      'state' => 'inactive',
-      'packagePath' => 'typo3conf/ext/news/',
-      'classesPath' => 'Classes/',
-    ),
-    'phpunit' => 
-    array (
-      'state' => 'active',
-      'packagePath' => 'typo3conf/ext/phpunit/',
-      'classesPath' => 'Classes/',
-    ),
-    'realurl' => 
-    array (
-      'state' => 'active',
-      'packagePath' => 'typo3conf/ext/realurl/',
-      'classesPath' => 'Classes/',
-    ),
-    'workspace_test' => 
-    array (
-      'state' => 'active',
-      'packagePath' => 'typo3conf/ext/workspace_test/',
       'classesPath' => 'Classes/',
     ),
     'wt_spamshield' => 
