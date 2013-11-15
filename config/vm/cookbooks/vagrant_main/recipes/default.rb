@@ -13,6 +13,11 @@ node.override['apache']['prefork']['maxrequestsperchild'] = 200
 
 node.override['php']['conf_dir'] = '/etc/php5/apache2'
 
+node.default['php']['directives']['realpath_cache_size'] = '1024k'
+node.default['php']['directives']['realpath_cache_ttl'] = '600'
+node.default['php']['directives']['xdebug.remote_host'] = '192.168.156.1'
+node.default['php']['directives']['xdebug.remote_autostart'] = 'Off'
+
 node.default['locale']['lang'] = 'de_DE.utf8'
 
 node.default['redisio']['version'] = '2.6.10'
