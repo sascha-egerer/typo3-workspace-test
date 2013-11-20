@@ -66,9 +66,11 @@ return array(
 	),
 	'INSTALL' => array(
 		'wizardDone' => array(
+			'TYPO3\CMS\Install\Updates\FileIdentifierHashUpdate' => 1,
 			'TYPO3\CMS\Install\Updates\FilemountUpdateWizard' => 1,
 			'TYPO3\CMS\Install\Updates\InstallSysExtsUpdate' => '["info","perm","func","filelist","about","cshmanual","feedit","opendocs","recycler","t3editor","reports","scheduler","simulatestatic","documentation","rsaauth"]',
 			'TYPO3\CMS\Install\Updates\TceformsUpdateWizard' => 'tt_content:image,pages:media,pages_language_overlay:media',
+			'TYPO3\CMS\Install\Updates\TruncateSysFileProcessedFileTable' => 1,
 		),
 	),
 	'SYS' => array(
