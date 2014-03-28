@@ -24,8 +24,8 @@
     php_admin_value post_max_size 10M
 
     # Use xdebug for remote debugging
-    php_admin_value xdebug.remote_enable 1
-    php_admin_value xdebug.remote_connect_back 1
+    php_admin_flag xdebug.remote_enable 1
+    php_admin_flag xdebug.remote_connect_back 1
     php_admin_value xdebug.max_nesting_level 250
 # uncomment to prevent debugging BE login status checks
 #<Files ajax.php>

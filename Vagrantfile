@@ -41,6 +41,14 @@ Vagrant::configure("2") do |config|
     # does all the magic.
     chef.add_recipe('vagrant_main')
 
+    chef.json = {
+      'php' => {
+        'directives' => {
+          'xdebug.remote_host' => '192.168.156.1'
+        }
+      }
+    }
+
     #chef.json = {
     #  'mysql' => {
     #    'server_root_password' => 'iloverandompasswordsbutthiswilldo',
