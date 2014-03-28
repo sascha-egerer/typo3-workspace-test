@@ -420,40 +420,18 @@ return array (
       'packagePath' => 'typo3/sysext/workspaces/',
       'classesPath' => 'Classes/',
     ),
-    'automaketemplate' => 
+    'sys_action' => 
     array (
+      'manifestPath' => '',
+      'composerName' => 'typo3/cms-sys-action',
       'state' => 'active',
-      'packagePath' => 'typo3conf/ext/automaketemplate/',
+      'packagePath' => 'typo3/sysext/sys_action/',
       'classesPath' => 'Classes/',
     ),
-    'extension_builder' => 
+    'wt_spamshield' => 
     array (
       'state' => 'active',
-      'packagePath' => 'typo3conf/ext/extension_builder/',
-      'classesPath' => 'Classes/',
-    ),
-    'introduction' => 
-    array (
-      'state' => 'active',
-      'packagePath' => 'typo3conf/ext/introduction/',
-      'classesPath' => 'Classes/',
-    ),
-    'jquerycolorbox' => 
-    array (
-      'state' => 'active',
-      'packagePath' => 'typo3conf/ext/jquerycolorbox/',
-      'classesPath' => 'Classes/',
-    ),
-    'phpunit' => 
-    array (
-      'state' => 'active',
-      'packagePath' => 'typo3conf/ext/phpunit/',
-      'classesPath' => 'Classes/',
-    ),
-    'realurl' => 
-    array (
-      'state' => 'active',
-      'packagePath' => 'typo3conf/ext/realurl/',
+      'packagePath' => 'typo3conf/ext/wt_spamshield/',
       'classesPath' => 'Classes/',
     ),
     'workspace_test' => 
@@ -462,10 +440,40 @@ return array (
       'packagePath' => 'typo3conf/ext/workspace_test/',
       'classesPath' => 'Classes/',
     ),
-    'wt_spamshield' => 
+    'realurl' => 
     array (
       'state' => 'active',
-      'packagePath' => 'typo3conf/ext/wt_spamshield/',
+      'packagePath' => 'typo3conf/ext/realurl/',
+      'classesPath' => 'Classes/',
+    ),
+    'phpunit' => 
+    array (
+      'state' => 'active',
+      'packagePath' => 'typo3conf/ext/phpunit/',
+      'classesPath' => 'Classes/',
+    ),
+    'jquerycolorbox' => 
+    array (
+      'state' => 'active',
+      'packagePath' => 'typo3conf/ext/jquerycolorbox/',
+      'classesPath' => 'Classes/',
+    ),
+    'introduction' => 
+    array (
+      'state' => 'active',
+      'packagePath' => 'typo3conf/ext/introduction/',
+      'classesPath' => 'Classes/',
+    ),
+    'extension_builder' => 
+    array (
+      'state' => 'active',
+      'packagePath' => 'typo3conf/ext/extension_builder/',
+      'classesPath' => 'Classes/',
+    ),
+    'automaketemplate' => 
+    array (
+      'state' => 'active',
+      'packagePath' => 'typo3conf/ext/automaketemplate/',
       'classesPath' => 'Classes/',
     ),
     'adodb' => 
@@ -498,14 +506,6 @@ return array (
       'composerName' => 'typo3/cms-openid',
       'state' => 'inactive',
       'packagePath' => 'typo3/sysext/openid/',
-      'classesPath' => 'Classes/',
-    ),
-    'sys_action' => 
-    array (
-      'manifestPath' => '',
-      'composerName' => 'typo3/cms-sys-action',
-      'state' => 'inactive',
-      'packagePath' => 'typo3/sysext/sys_action/',
       'classesPath' => 'Classes/',
     ),
     'filemetadata' => 
